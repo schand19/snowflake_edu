@@ -16,10 +16,10 @@
 <ion-content padding>
   <ion-searchbar (ionInput)="getRegisteredSchools($event)" [(ngModel)]="selectedSchool"
      (ionCancel)="onCancel($event)"  autocomplete="on"></ion-searchbar>
-      <ion-list>
-          <ion-item *ngFor="let school of schools" (click)="selectOption(school)">
-            {{ school }}
-          </ion-item>
-        </ion-list>
-
+  <ion-list>
+    <ion-item *ngFor="let school of schools" (click)="selectOption(school)">
+      {{ school }}
+    </ion-item>
+  </ion-list>
+  <button ion-button block [disabled]='isDisabled' (click)="getMeToLogin()">Take me to Login</button>
 </ion-content>

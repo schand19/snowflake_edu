@@ -11,8 +11,31 @@
   </ion-navbar>
 
 </ion-header>
-
-
+ 
 <ion-content padding>
 
+  <ion-card>
+    
+      <ion-card-header>
+          Logging in for
+      </ion-card-header>
+    
+      <ion-card-content>
+        {{selectedSchool}}
+        <!-- Add card content here! -->
+      </ion-card-content>
+    
+    </ion-card>
+  <ion-item>
+    <ion-label floating>Username</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Password</ion-label>
+    <ion-input type="password"></ion-input>
+  </ion-item>
+
+  <button ion-button block>Login</button>
+  <a (click)="getMeToFindSchool()">Not your School?</a>
 </ion-content>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { LoginPage } from '../login/login';
 
 /**
  * Generated class for the FindschoolPage page.
@@ -16,22 +17,26 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class FindschoolPage {
   schools : string[];
   selectedSchool : string;
+  isDisabled : boolean = true;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    //this.generateSchools();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FindschoolPage');
   }
 
+  getMeToLogin (){
+    this.navCtrl.push(LoginPage, {selectedSchool: this.selectedSchool});
+  }
   selectOption(value){
     this.selectedSchool = value;
+    this.isDisabled = false;
     this.schools = [];
   }
   generateSchools (){
     this.schools = [
-      'Vivekananda Hyderabad 500018',
-      'Kakatiya Hyderabad 500032'
+      'Vivekananda, Hyderabad, 500018',
+      'Kakatiya, Hyderabad, 500032'
     ];
   }
   getRegisteredSchools(ev:any) {
@@ -43,8 +48,8 @@ export class FindschoolPage {
     // if the value is an empty string don't filter the items
     if (val && val.trim() != '') {
       this.schools = this.schools.filter((school) => {
-        if(school.toLowerCase().indexOf(val.toLowerCase()) > -1){
-          console.log(school);
+        if(school.toLowerCase() != val.toLowerCase() ){
+          this.isDisabled = true;
         }
         return (school.toLowerCase().indexOf(val.toLowerCase()) > -1);
       })
