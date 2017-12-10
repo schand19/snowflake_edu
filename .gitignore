@@ -1,4 +1,7 @@
 node_modules
 www
 resources
+platforms
+plugins
+.sourcemaps
 

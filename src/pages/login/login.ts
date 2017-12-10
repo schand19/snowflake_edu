@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FindschoolPage } from '../findschool/findschool';
+import { HomePage } from '../home/home';
+
+
 /**
  * Generated class for the LoginPage page.
  *
@@ -14,7 +17,10 @@ import { FindschoolPage } from '../findschool/findschool';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  selectedSchool;
+  selectedSchool:string;
+  userName:string;
+  password:string;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.selectedSchool  = navParams.get('selectedSchool');
   }
@@ -25,5 +31,11 @@ export class LoginPage {
 
   getMeToFindSchool(){
     this.navCtrl.push(FindschoolPage);
+  }
+
+  login(){
+    if(this.userName && this.userName === 'Admin' && this.password && this.password === "P@ssword"){
+      this.navCtrl.push(HomePage);
+    }
   }
 }
