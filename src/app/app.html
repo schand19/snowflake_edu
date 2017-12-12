@@ -7,26 +7,26 @@
 
   <ion-content>
     <ion-list>
-      <button menuClose ion-item (click)="openPage(1)">
+      <button menuClose ion-item>
           <ion-icon name="person" class="sideicon"></ion-icon>          
        My Profile
       </button>
-      <button menuClose ion-item  (click)="openPage(1)">
+      <button menuClose ion-item>
           <ion-icon name="timer" class="sideicon"></ion-icon>
         My Leaves
       </button>
-      <button menuClose ion-item (click)="openPage(1)">
+      <button menuClose ion-item>
           <ion-icon name="ios-calendar-outline" class="sideicon"></ion-icon>
         Holidays
       </button>
-      <button menuClose ion-item (click)="openPage(1)">
-          <ion-icon name="bus" class="sideicon"></ion-icon>
-          Bus Tracking
-        </button>
-        <button menuClose ion-item (click)="openPage(1)">
-            <ion-icon name="log-out" class="sideicon"></ion-icon>
-            Logout
-          </button>
+      <button menuClose ion-item>
+        <ion-icon name="bus" class="sideicon"></ion-icon>
+        Bus Tracking
+      </button>
+      <button menuClose ion-item (click)="logout()">
+          <ion-icon name="log-out" class="sideicon"></ion-icon>
+          Logout
+      </button>
     </ion-list>
   </ion-content>
 

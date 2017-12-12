@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 
 /**
@@ -18,7 +18,8 @@ export class FindschoolPage {
   schools : string[];
   selectedSchool : string;
   isDisabled : boolean = true;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public platform: Platform, public navCtrl: NavController, public navParams: NavParams) {
+    
   }
 
   ionViewDidLoad() {

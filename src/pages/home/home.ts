@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, Platform, Events } from 'ionic-angular';
+import { FindschoolPage } from '../findschool/findschool';
 
 @Component({
   selector: 'page-home',
@@ -7,8 +8,14 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public platform: Platform, public navCtrl: NavController, public events: Events) {
+    events.subscribe('logout', () => {
+      this.logout();
+    });
+  }
 
+  logout(){
+    this.navCtrl.push(FindschoolPage);
   }
 
 }
