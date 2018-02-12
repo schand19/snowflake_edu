@@ -1,1 +1,84 @@
-page-home {}
+page-home {
+    height: 200%;
+    padding: 0px;
+    .thumbgrid {
+        height: 200%;
+        padding: 0px;
+    }
+    .thumbrow {
+        height: 20%;
+    }
+    .thumb1 {
+        width: 100%;
+        background: linear-gradient(#00b3c6, #00c79b);
+        height: 100%;
+        padding-top: 20px;
+    }
+    .thumb2 {
+        background: linear-gradient(#0070c9, #00b3c6);
+        width: 100%;
+        height: 100%;
+        padding-top: 20px;
+    }
+    .thumb3 {
+        background: linear-gradient(#2a0fcd, #0070c9);
+        width: 100%;
+        height: 100%;
+        padding-top: 20px;
+    }
+    .thumb4 {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(#3700d1, #2a0fcd);
+        padding-top: 20px;
+    }
+    .thumb5 {
+        width: 100%;
+        background: linear-gradient(#5900d5, #3700d1);
+        padding-top: 20px;
+        height: 100%;
+    }
+    .thumb6 {
+        width: 100%;
+        background: linear-gradient(#9700d7, #5900d5);
+        padding-top: 20px;
+        height: 100%;
+    }
+    .thumb7 {
+        width: 100%;
+        background: linear-gradient(#de00d9, #9700d7);
+        padding-top: 20px;
+        height: 100%;
+    }
+    .thumb8 {
+        width: 50%;
+        padding-top: 20px;
+        background: linear-gradient(#f600ad, #de00d9);
+        height: 100%;
+    }
+    .thumb9 {
+        width: 100%;
+        padding-top: 20px;
+        background: linear-gradient(#f600ad, #fc0000);
+        height: 100%;
+    }
+    .thumb10 {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(#f600ad, #de00d9);
+        padding-top: 20px;
+    }
+    .thumb11 {
+        width: 100%;
+        padding-top: 20px;
+        background: linear-gradient(#f600ad, #de00d9);
+        height: 100%;
+    }
+    .thumb11 {
+        width: 50%;
+        height: 50%;
+        background: linear-gradient(#0000CE, #E5002D);
+        width: 50%;
+        height: 100%;
+    }
+}
