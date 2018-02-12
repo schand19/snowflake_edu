@@ -10,4 +10,4 @@ import { FindschoolPage } from './findschool';
     IonicPageModule.forChild(FindschoolPage),
   ],
 })
-export class FindschoolPageModule {}
+export class FindschoolPageModule { }

@@ -15,7 +15,7 @@ export class MyApp {
 
   rootPage: any = FindschoolPage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{ title: string, component: any }>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public events: Events) {
     this.initializeApp();
@@ -36,7 +36,7 @@ export class MyApp {
     });
   }
 
-  logout(){
+  logout() {
     this.events.publish('logout');
   }
 

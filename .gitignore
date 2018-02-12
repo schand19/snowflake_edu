@@ -5,3 +5,8 @@ platforms
 plugins
 .sourcemaps
 
+.idea/workspace.xml
+.idea/vcs.xml
+.idea/snowflake_edu.iml
+.idea/modules.xml
+.idea/modules.xml

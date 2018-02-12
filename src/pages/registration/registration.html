@@ -1,0 +1,18 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Registration</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-item>
+        <ion-label color="primary" fixed>+91</ion-label>
+        <ion-input type="tel" placeholder="10 digit mobile" maxLength="10" (input)="validatePhone($event.target.value)"></ion-input>
+    </ion-item>
+    <button ion-button full [disabled]='isSendOTPDisabled' (click)="sendOTP()">Send OTP</button>
+
+    <ion-item *ngIf="showOtpField">
+        <ion-label fixed>OTP</ion-label>
+        <ion-input type="text" (input)="readOTP($event.target.value)"></ion-input>
+    </ion-item>
+    <button ion-button full *ngIf="showValidateOTPButton" (click)="validateOTP()">Validate OTP</button>
+</ion-content>

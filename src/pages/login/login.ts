@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FindschoolPage } from '../findschool/findschool';
+import { RegistrationPage } from '../registration/registration';
 import { HomePage } from '../home/home';
 
 
@@ -17,24 +18,58 @@ import { HomePage } from '../home/home';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  selectedSchool:string;
-  userName:string;
-  password:string;
+  selectedSchoolId: string;
+  selectedSchoolDB: string;
+  selectedSchool: string;
+  /* userName:string;
+  password:string; */
+
+  isSendOTPDisabled: boolean = true;
+  otp: string;
+  showOtpField: boolean = false;
+  showLoginButton: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.selectedSchool  = navParams.get('selectedSchool');
+    this.selectedSchool = navParams.get('selectedSchool');
+    this.selectedSchoolId = navParams.get('selectedSchoolId');
+    this.selectedSchoolDB = navParams.get('selectedSchoolDB');
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage', this.selectedSchool);
+    console.log('ionViewDidLoad LoginPage', this.selectedSchool, this.selectedSchoolId, this.selectedSchoolDB);
   }
 
-  getMeToFindSchool(){
+  getMeToFindSchool() {
     this.navCtrl.push(FindschoolPage);
   }
 
-  login(){
-    if(this.userName && this.userName === 'Admin' && this.password && this.password === "P@ssword"){
+  getMeToRegistration() {
+    this.navCtrl.push(RegistrationPage);
+  }
+
+  validatePhone(phoneNumber) {
+    this.isSendOTPDisabled = true;
+    if (phoneNumber.toString().length == 10) {
+      this.isSendOTPDisabled = false;
+    }
+  }
+
+  sendOTP() {
+    this.showOtpField = true;
+  }
+
+  readOTP(otp) {
+    this.otp = '';
+    this.showLoginButton = false;
+
+    if (otp) {
+      this.otp = otp;
+      this.showLoginButton = true;
+    }
+  }
+
+  login() {
+    if (/* this.userName && this.userName === 'Admin' && this.password && this.password === "P@ssword" */ this.otp) {
       this.navCtrl.push(HomePage);
     }
   }

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { LoginPage } from '../login/login';
+import { FindSchoolService } from '../../services/findSchool.service';
+import { Spinner } from '../../utilities/spinner';
 
 /**
  * Generated class for the FindschoolPage page.
@@ -13,34 +15,52 @@ import { LoginPage } from '../login/login';
 @Component({
   selector: 'page-findschool',
   templateUrl: 'findschool.html',
+  providers: [FindSchoolService, Spinner]
 })
 export class FindschoolPage {
-  schools : string[];
-  selectedSchool : string;
-  isDisabled : boolean = true;
-  constructor(public platform: Platform, public navCtrl: NavController, public navParams: NavParams) {
-    
+  schools: string[];
+  selectedSchool: string;
+  selectedSchoolId: string;
+  selectedSchoolDB: string;
+  isDisabled: boolean = true;
+  registeredSchools: any;
+  constructor(public platform: Platform, public navCtrl: NavController, public navParams: NavParams,
+    private _fss: FindSchoolService, public spinner: Spinner) {
+
   }
 
+  ngOnInit() {
+    let spinner = this.spinner.start({ loaderText: 'Fetching Schools' });
+    this._fss.getRegisteredSchools().subscribe(
+      registeredSchools => {
+        this.registeredSchools = registeredSchools.data;
+      },
+      err => {
+        alert('Unable to fetch schools, try again after sometime');
+      },
+      () => {
+        spinner.dismiss();
+      })
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad FindschoolPage');
   }
 
-  getMeToLogin (){
-    this.navCtrl.push(LoginPage, {selectedSchool: this.selectedSchool});
+  getMeToLogin() {
+    this.navCtrl.push(LoginPage, { selectedSchool: this.selectedSchool, selectedSchoolId: this.selectedSchoolId, selectedSchoolDB: this.selectedSchoolDB });
   }
-  selectOption(value){
-    this.selectedSchool = value;
+  selectOption(value) {
+    this.selectedSchool = value.school_name + ', ' + value.school_address;
+    this.selectedSchoolId = value['school_id'];
+    this.selectedSchoolDB = value['school_db'];
     this.isDisabled = false;
     this.schools = [];
   }
-  generateSchools (){
-    this.schools = [
-      'Vivekananda, Hyderabad, 500018',
-      'Kakatiya, Hyderabad, 500032'
-    ];
+  generateSchools() {
+    console.log(this.registeredSchools)
+    this.schools = this.registeredSchools;//.map(obj => { return obj.school_name + ', ' + obj.school_address; });
   }
-  getRegisteredSchools(ev:any) {
+  getRegisteredSchools(ev: any) {
     this.generateSchools();
 
     // set val to the value of the searchbar
@@ -48,12 +68,12 @@ export class FindschoolPage {
 
     // if the value is an empty string don't filter the items
     if (val && val.trim() != '') {
-      this.schools = this.schools.filter((school) => {
-        if(school.toLowerCase() != val.toLowerCase() ){
+      this.schools = this.registeredSchools.filter((school) => {
+        if (school['school_name'].toLowerCase() + ', ' + school['school_address'].toLowerCase() != val.toLowerCase()) {
           this.isDisabled = true;
         }
-        return (school.toLowerCase().indexOf(val.toLowerCase()) > -1);
-      })
+        return ((school['school_name'].toLowerCase() + ', ' + school['school_address'].toLowerCase()).indexOf(val.toLowerCase()) > -1);
+      });
     }
   }
 

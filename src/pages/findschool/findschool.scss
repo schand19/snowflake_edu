@@ -1,9 +1,50 @@
 page-findschool {
-    .card{
-        background: cornflowerblue;
-        color: #fff;
-        .card-header{
-          color:#fff;
-        }
+  .card {
+    background: cornflowerblue;
+    color: #fff;
+    .card-header {
+      color: #fff;
+    }
+  }
+  .scroll-content {
+    /* background: url("../assets/imgs/school1.jpeg"); */
+    .registeredSchools {
+      position: absolute;
+      z-index: 999;
+      width: 321px;
+    }
+    .findSchool {
+      font-size: 30px;
+      font-style: italic;
+      text-align: center;
+      color: #fff;
+    }
+    .searchbar-md {
+      padding: 0;
+    }
+    ion-list {
+      ion-label {
+        color: color($colors, primary, base) !important;
+        font-style: italic;
+        white-space: normal;
       }
+    }
+    .searchbar-md .searchbar-input {
+      border-radius: 6px;
+      font-style: italic;
+      color: #000046;
+    }
+    .hide {
+      display: none;
+    }
+  }
+  ion-footer {
+    .button-md {
+      margin: 0 !important;
+      font-style: italic;
+      font-size: 25px !important;
+      height: 50px !important;
+      background: color($colors, primary, base);
+    }
+  }
 }
