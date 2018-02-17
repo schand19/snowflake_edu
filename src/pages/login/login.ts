@@ -21,6 +21,7 @@ export class LoginPage {
   selectedSchoolId: string;
   selectedSchoolDB: string;
   selectedSchool: string;
+  hasSchoolImage : boolean = false;
   /* userName:string;
   password:string; */
 
@@ -36,7 +37,7 @@ export class LoginPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage', this.selectedSchool, this.selectedSchoolId, this.selectedSchoolDB);
+    console.log('ionViewDidLoad LoginPage');
   }
 
   getMeToFindSchool() {
@@ -44,7 +45,7 @@ export class LoginPage {
   }
 
   getMeToRegistration() {
-    this.navCtrl.push(RegistrationPage);
+    this.navCtrl.push(RegistrationPage, {selectedSchool: this.selectedSchool, selectedSchoolId: this.selectedSchoolId, selectedSchoolDB: this.selectedSchoolDB});
   }
 
   validatePhone(phoneNumber) {

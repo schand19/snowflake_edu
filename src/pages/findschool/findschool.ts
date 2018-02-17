@@ -30,8 +30,8 @@ export class FindschoolPage {
   }
 
   ngOnInit() {
-    let spinner = this.spinner.start({ loaderText: 'Fetching Schools' });
-    this._fss.getRegisteredSchools().subscribe(
+    //let spinner = this.spinner.start({ loaderText: 'Fetching Schools' });
+    /* this._fss.getRegisteredSchools().subscribe(
       registeredSchools => {
         this.registeredSchools = registeredSchools.data;
       },
@@ -40,7 +40,11 @@ export class FindschoolPage {
       },
       () => {
         spinner.dismiss();
-      })
+      }); */
+      this.registeredSchools = [
+        {school_name : 'Hyderabad Public School', school_address : 'Lingampally', school_id : '1', school_db : '1'},
+        {school_name : 'Delhi Public School', school_address : 'Lanco Hills', school_id : '2', school_db : '2'}
+      ]
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad FindschoolPage');
@@ -57,7 +61,6 @@ export class FindschoolPage {
     this.schools = [];
   }
   generateSchools() {
-    console.log(this.registeredSchools)
     this.schools = this.registeredSchools;//.map(obj => { return obj.school_name + ', ' + obj.school_address; });
   }
   getRegisteredSchools(ev: any) {

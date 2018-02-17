@@ -13,7 +13,7 @@ import { FindschoolPage } from '../pages/findschool/findschool';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = FindschoolPage;
 
   pages: Array<{ title: string, component: any }>;
 
