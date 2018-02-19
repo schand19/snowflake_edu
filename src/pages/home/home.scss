@@ -1,8 +1,13 @@
 page-home {
-    height: 200%;
+    height: 100%;
     padding: 0px;
+
+    ion-row {
+        height: 10%;
+      }
+
     .thumbgrid {
-        height: 200%;
+        height: 150%;
         padding: 0px;
     }
     .thumbrow {
@@ -82,7 +87,7 @@ page-home {
         height: 100%;
     }
     .titleMenu{
-        font-family: Helvetica;
+        font-family: Comic Sans MS;
         color: #ffffff;
         font-weight: bold;
         font-size: 22px;    

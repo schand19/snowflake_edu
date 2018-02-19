@@ -29,7 +29,7 @@ export class LoginPage {
   otp: string;
   showOtpField: boolean = false;
   showLoginButton: boolean = false;
-
+  userType: string;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.selectedSchool = navParams.get('selectedSchool');
     this.selectedSchoolId = navParams.get('selectedSchoolId');
@@ -70,8 +70,9 @@ export class LoginPage {
   }
 
   login() {
-    if (/* this.userName && this.userName === 'Admin' && this.password && this.password === "P@ssword" */ this.otp) {
-      this.navCtrl.push(HomePage);
+    this.userType = "Parent";
+    if (/* this.userName && this.userName === 'Admin' && this.password && this.password === "P@ssword" */ this.otp && this.userType != null) {
+      this.navCtrl.push(HomePage, {userType: this.userType});
     }
   }
 }
