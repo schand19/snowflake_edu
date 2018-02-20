@@ -15,6 +15,7 @@ import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { FindschoolPage } from '../pages/findschool/findschool';
 import { RegistrationPage } from '../pages/registration/registration';
+import { ProfilePage } from '../pages/profile/profile';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { RegistrationPage } from '../pages/registration/registration';
     ListPage,
     LoginPage,
     FindschoolPage,
-    RegistrationPage
+    RegistrationPage,
+    ProfilePage
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,8 @@ import { RegistrationPage } from '../pages/registration/registration';
     ListPage,
     LoginPage,
     FindschoolPage,
-    RegistrationPage
+    RegistrationPage,
+    ProfilePage
   ],
   providers: [
     StatusBar,

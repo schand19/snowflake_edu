@@ -1,11 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform, Events } from 'ionic-angular';
+import { Nav, Platform, Events, MenuController, NavParams } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { LoginPage } from '../pages/login/login';
-import { ListPage } from '../pages/list/list';
-import { HomePage } from '../pages/home/home';
 import { FindschoolPage } from '../pages/findschool/findschool';
+import { ProfilePage } from '../pages/profile/profile';
+import { HomePage } from '../pages/home/home';
 
 @Component({
   templateUrl: 'app.html'
@@ -13,16 +12,17 @@ import { FindschoolPage } from '../pages/findschool/findschool';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = FindschoolPage;
+  rootPage: any = HomePage;
 
   pages: Array<{ title: string, component: any }>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public events: Events) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
+    public events: Events, public navCtrl: MenuController) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'My Profile', component: FindschoolPage }
+      { title: 'Find School', component: FindschoolPage }
     ];
 
   }
@@ -36,6 +36,10 @@ export class MyApp {
     });
   }
 
+  goToMyProfilePage(){
+    this.events.publish('goToMyProfilePage');
+  }
+  
   logout() {
     this.events.publish('logout');
   }
