@@ -1,9 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform, Events, MenuController, NavParams } from 'ionic-angular';
+import { Nav, Platform, Events, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { FindschoolPage } from '../pages/findschool/findschool';
-import { ProfilePage } from '../pages/profile/profile';
 import { HomePage } from '../pages/home/home';
 
 @Component({

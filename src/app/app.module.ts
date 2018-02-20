@@ -17,6 +17,7 @@ import { FindschoolPage } from '../pages/findschool/findschool';
 import { RegistrationPage } from '../pages/registration/registration';
 import { ProfilePage } from '../pages/profile/profile';
 import { SchoolDiaryPage } from '../pages/school-diary/school-diary';
+import { LunchMenuPage } from '../pages/lunch-menu/lunch-menu';
 
 
 
@@ -29,7 +30,8 @@ import { SchoolDiaryPage } from '../pages/school-diary/school-diary';
     FindschoolPage,
     RegistrationPage,
     ProfilePage,
-    SchoolDiaryPage
+    SchoolDiaryPage,
+    LunchMenuPage
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,8 @@ import { SchoolDiaryPage } from '../pages/school-diary/school-diary';
     FindschoolPage,
     RegistrationPage,
     ProfilePage,
-    SchoolDiaryPage
+    SchoolDiaryPage,
+    LunchMenuPage
   ],
   providers: [
     StatusBar,
