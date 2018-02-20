@@ -14,5 +14,9 @@
 
 
 <ion-content padding>
-
+<ion-slides class="image-slider" loop= "true" effect="coverflow" >
+  <ion-slide *ngFor = "let img of images">
+      <ion-img src="../assets/imgs/{{img}}" class="thumb-img" imageViewer></ion-img>
+  </ion-slide>
+</ion-slides>
 </ion-content>

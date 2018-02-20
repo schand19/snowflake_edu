@@ -14,7 +14,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'image-gallery.html',
 })
 export class ImageGalleryPage {
-
+  images= ['1.jpeg', '2.jpeg', '3.jpg', '4.jpg'];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

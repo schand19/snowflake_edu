@@ -2,6 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { NavController, Platform, Events ,NavParams} from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import {SchoolDiaryPage} from '../school-diary/school-diary';
+import {ImageGalleryPage} from '../image-gallery/image-gallery';
 
 @Component({
   selector: 'page-home',
@@ -46,4 +47,7 @@ export class HomePage {
     this.navCtrl.push(SchoolDiaryPage, {userType: this.userType});
   }
 
+  onClickImageGallery(){
+    this.navCtrl.push(ImageGalleryPage);
+  }
 }

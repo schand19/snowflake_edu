@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import {IonicImageViewerModule} from 'ionic-img-viewer';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpModule } from '@angular/http';
@@ -16,7 +17,7 @@ import { LoginPage } from '../pages/login/login';
 import { FindschoolPage } from '../pages/findschool/findschool';
 import { RegistrationPage } from '../pages/registration/registration';
 import { SchoolDiaryPage } from '../pages/school-diary/school-diary';
-
+import { ImageGalleryPage } from '../pages/image-gallery/image-gallery';
 
 
 @NgModule({
@@ -27,14 +28,16 @@ import { SchoolDiaryPage } from '../pages/school-diary/school-diary';
     LoginPage,
     FindschoolPage,
     RegistrationPage,
-    SchoolDiaryPage
+    SchoolDiaryPage,
+    ImageGalleryPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpModule, 
     HttpClientModule,
-    JsonpModule
+    JsonpModule,
+    IonicImageViewerModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -44,7 +47,8 @@ import { SchoolDiaryPage } from '../pages/school-diary/school-diary';
     LoginPage,
     FindschoolPage,
     RegistrationPage,
-    SchoolDiaryPage
+    SchoolDiaryPage,
+    ImageGalleryPage
   ],
   providers: [
     StatusBar,
