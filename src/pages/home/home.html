@@ -19,6 +19,7 @@
 
 <ion-content>
   <ion-grid  *ngIf= "parentMenu" class="thumbgrid">
+    
     <ion-row  (click)= "onClickDiary('parent')" class="thumbrow">
       <ion-col col col-3 class="thumb2">
         <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/school dairy.png"></ion-img>
@@ -82,7 +83,7 @@
       </ion-col>
     </ion-row>
 
-    <ion-row class="thumbrow">
+    <ion-row class="thumbrow" (click)="goToLunchMenu()">
       <ion-col col col-3 class="thumb2 col-100">
         <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/lunch menu.png"></ion-img>
       </ion-col>
@@ -92,7 +93,7 @@
     </ion-row>
   </ion-grid>
 
-  <ion-grid *ngIf= "teacherMenu" class="thumbgrid">
+  <ion-grid *ngIf="teacherMenu" class="thumbgrid">
     <ion-row class="thumbrow">
       <ion-col col col-3 class="thumb2">
         <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/school dairy.png"></ion-img>
@@ -182,10 +183,10 @@
         <p>Lunch Menu</p>
       </ion-col>
     </ion-row>
-    
+
   </ion-grid>
 
-  <ion-grid *ngIf= "adminMenu" class="thumbgrid">
+  <ion-grid *ngIf="adminMenu" class="thumbgrid">
     <ion-row class="thumbrow">
       <ion-col col col-3 class="thumb2">
         <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/school dairy.png"></ion-img>
@@ -275,10 +276,10 @@
         <p>Lunch Menu</p>
       </ion-col>
     </ion-row>
-    
+
   </ion-grid>
 
-  <ion-grid *ngIf= "driverMenu" class="thumbgrid">
+  <ion-grid *ngIf="driverMenu" class="thumbgrid">
 
     <ion-row class="thumbrow">
       <ion-col col col-3 class="thumb2 col-100">
@@ -306,6 +307,6 @@
         <p>Holiday Clendar</p>
       </ion-col>
     </ion-row>
-    
+
   </ion-grid>
 </ion-content>

@@ -16,10 +16,10 @@ import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { FindschoolPage } from '../pages/findschool/findschool';
 import { RegistrationPage } from '../pages/registration/registration';
+import { ProfilePage } from '../pages/profile/profile';
 import { SchoolDiaryPage } from '../pages/school-diary/school-diary';
 import { ImageGalleryPage } from '../pages/image-gallery/image-gallery';
-
-
+import { LunchMenuPage } from '../pages/lunch-menu/lunch-menu';
 @NgModule({
   declarations: [
     MyApp,
@@ -29,7 +29,10 @@ import { ImageGalleryPage } from '../pages/image-gallery/image-gallery';
     FindschoolPage,
     RegistrationPage,
     SchoolDiaryPage,
-    ImageGalleryPage
+    ImageGalleryPage,
+    ProfilePage,
+    SchoolDiaryPage,
+    LunchMenuPage
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,10 @@ import { ImageGalleryPage } from '../pages/image-gallery/image-gallery';
     FindschoolPage,
     RegistrationPage,
     SchoolDiaryPage,
-    ImageGalleryPage
+    ImageGalleryPage,
+    ProfilePage,
+    SchoolDiaryPage,
+    LunchMenuPage
   ],
   providers: [
     StatusBar,
