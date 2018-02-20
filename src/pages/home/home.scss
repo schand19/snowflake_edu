@@ -1,8 +1,13 @@
 page-home {
-    height: 200%;
+    height: 100%;
     padding: 0px;
+
+    ion-row {
+        height: 10%;
+      }
+
     .thumbgrid {
-        height: 200%;
+        height: 150%;
         padding: 0px;
     }
     .thumbrow {
@@ -66,7 +71,7 @@ page-home {
         width: 100%;
         height: 100%;
         background: linear-gradient(#f600ad, #de00d9);
-        padding-top: 20px;
+        padding-top: 24px;
     }
     .thumb11 {
         width: 100%;
@@ -80,5 +85,11 @@ page-home {
         background: linear-gradient(#0000CE, #E5002D);
         width: 50%;
         height: 100%;
+    }
+    .titleMenu{
+        font-family: Comic Sans MS;
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 22px;    
     }
 }
