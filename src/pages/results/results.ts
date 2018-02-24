@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { MarksheetPage } from '../marksheet/marksheet';
+//import { MarksheetPage } from '../marksheet/marksheet';
 
 /**
  * Generated class for the ResultsPage page.
@@ -30,7 +30,7 @@ export class ResultsPage implements OnInit{
   }
 
   getMarksForTheExam(exam){
-    this.navCtrl.push(MarksheetPage, {examName:exam});
+   // this.navCtrl.push(MarksheetPage, {examName:exam});
   }
 
 }

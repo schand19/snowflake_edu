@@ -25,7 +25,9 @@ import { AnnouncementsPage } from '../pages/announcements/announcements';
 import { AttendancePage } from '../pages/attendance/attendance';
 import { HolidayCalenderPage } from '../pages/holiday-calender/holiday-calender';
 import { OnlineTeacherPage } from '../pages/online-teacher/online-teacher';
-import { MarksheetPage } from '../pages/marksheet/marksheet';
+//import { MarksheetPage } from '../pages/marksheet/marksheet';
+
+import {IonicStorageModule} from '@ionic/Storage';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,7 @@ import { MarksheetPage } from '../pages/marksheet/marksheet';
     ListPage,
     LoginPage,
     LunchMenuPage,
-    MarksheetPage,
+    //MarksheetPage,
     RegistrationPage,
     OnlineTeacherPage,
     ProfilePage,
@@ -53,7 +55,8 @@ import { MarksheetPage } from '../pages/marksheet/marksheet';
     HttpModule, 
     HttpClientModule,
     JsonpModule,
-    IonicImageViewerModule
+    IonicImageViewerModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -67,7 +70,7 @@ import { MarksheetPage } from '../pages/marksheet/marksheet';
     ListPage,
     LoginPage,
     LunchMenuPage,
-    MarksheetPage,
+    //MarksheetPage,
     RegistrationPage,
     OnlineTeacherPage,
     ProfilePage,

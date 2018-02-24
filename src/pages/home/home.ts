@@ -6,7 +6,7 @@ import { SchoolDiaryPage } from '../school-diary/school-diary';
 import { ImageGalleryPage } from '../image-gallery/image-gallery';
 import { LunchMenuPage } from '../lunch-menu/lunch-menu';
 import { ResultsPage } from '../results/results';
-
+import { Storage } from '@ionic/Storage';
 
 @Component({
   selector: 'page-home',
@@ -19,8 +19,7 @@ export class HomePage {
   teacherMenu: boolean;
   adminMenu: boolean;
   driverMenu: boolean;
-  constructor(public platform: Platform, public navParams: NavParams, public navCtrl: NavController, public events: Events) {
-    this.userType = navParams.get('userType');
+  constructor(public platform: Platform, public navParams: NavParams, public navCtrl: NavController, public events: Events,public storage: Storage) {
     events.subscribe('logout', () => {
       this.logout();
     });
@@ -35,17 +34,21 @@ export class HomePage {
   }
 
   ngOnInit() {
-
-    console.log("usertype in dashboard:", this.userType);
-    if (this.userType == "Parent") {
-      this.parentMenu = true;
-    } else if (this.userType == "Teacher") {
-      this.teacherMenu = true;
-    } else if (this.userType == "Admin") {
-      this.adminMenu = true;
-    } else if (this.userType == "Driver") {
-      this.driverMenu = true;
-    }
+    this.storage.get("userType").then(userType=>{
+      this.userType = String(userType);
+      console.log("usertype in dashboard:", this.userType);
+      if(this.userType == "Parent") {
+        this.parentMenu = true;
+      } else if (this.userType == "Teacher") {
+        this.teacherMenu = true;
+      } else if (this.userType == "Admin") {
+        this.adminMenu = true;
+      } else if (this.userType == "Driver") {
+        this.driverMenu = true;
+      }
+    })
+    
+   
   }
   logout() {
     this.navCtrl.push(FindschoolPage);
