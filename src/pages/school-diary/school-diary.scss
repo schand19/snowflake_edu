@@ -1,8 +1,12 @@
 page-school-diary {
     ion-col{
-        padding: 0px;
+        padding: 0px !important;
     }
     scroll-content {
         padding: 0px; 
+    }
+    .card{
+        background: #9fe6d7;
+        padding:5px;
     }
 }
