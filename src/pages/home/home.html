@@ -18,13 +18,14 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid  *ngIf= "parentMenu" class="thumbgrid">
 
-    <ion-row  (click)= "onClickDiary('parent')" class="thumbrow">
+  <ion-grid class="thumbgrid">
+    <ion-row (click)="onClickDiary('parent')" class="thumbrow">
+
       <ion-col col col-3 class="thumb2">
         <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/school dairy.png"></ion-img>
       </ion-col>
-      <ion-col col col-9  class="thumb2 titleMenu">
+      <ion-col col col-9 class="thumb2 titleMenu">
         <p>School Diary</p>
       </ion-col>
     </ion-row>
@@ -56,7 +57,7 @@
       </ion-col>
     </ion-row>
 
-    <ion-row (click)= "onClickImageGallery('parent')" class="thumbrow">
+    <ion-row (click)="onClickImageGallery('parent')" class="thumbrow">
       <ion-col col col-3 class="thumb2 col-100">
         <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/image gallary.png"></ion-img>
       </ion-col>
@@ -74,7 +75,7 @@
       </ion-col>
     </ion-row>
 
-    <ion-row class="thumbrow">
+    <ion-row class="thumbrow" (click)="goToResults($event)">
       <ion-col col col-3 class="thumb2 col-100">
         <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/target.png"></ion-img>
       </ion-col>
@@ -83,7 +84,7 @@
       </ion-col>
     </ion-row>
 
-    <ion-row class="thumbrow" (click)="goToLunchMenu()">
+    <ion-row class="thumbrow" (click)="goToLunchMenu($event)">
       <ion-col col col-3 class="thumb2 col-100">
         <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/lunch menu.png"></ion-img>
       </ion-col>
@@ -148,7 +149,7 @@
       </ion-col>
     </ion-row>
 
-    <ion-row class="thumbrow">
+    <ion-row class="thumbrow" (click)="goToResults($event)">
       <ion-col col col-3 class="thumb2 col-100">
         <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/target.png"></ion-img>
       </ion-col>
@@ -175,7 +176,7 @@
       </ion-col>
     </ion-row>
 
-    <ion-row class="thumbrow">
+    <ion-row class="thumbrow" (click)="goToLunchMenu($event)">
       <ion-col col col-3 class="thumb2 col-100">
         <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/lunch menu.png"></ion-img>
       </ion-col>
@@ -241,7 +242,7 @@
       </ion-col>
     </ion-row>
 
-    <ion-row class="thumbrow">
+    <ion-row class="thumbrow" (click)="goToResults($event)">
       <ion-col col col-3 class="thumb2 col-100">
         <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/target.png"></ion-img>
       </ion-col>
@@ -268,7 +269,7 @@
       </ion-col>
     </ion-row>
 
-    <ion-row class="thumbrow">
+    <ion-row class="thumbrow" (click)="goToLunchMenu($event)">
       <ion-col col col-3 class="thumb2 col-100">
         <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/lunch menu.png"></ion-img>
       </ion-col>

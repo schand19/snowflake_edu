@@ -20,19 +20,32 @@ import { ProfilePage } from '../pages/profile/profile';
 import { SchoolDiaryPage } from '../pages/school-diary/school-diary';
 import { ImageGalleryPage } from '../pages/image-gallery/image-gallery';
 import { LunchMenuPage } from '../pages/lunch-menu/lunch-menu';
+import { ResultsPage } from '../pages/results/results';
+import { AnnouncementsPage } from '../pages/announcements/announcements';
+import { AttendancePage } from '../pages/attendance/attendance';
+import { HolidayCalenderPage } from '../pages/holiday-calender/holiday-calender';
+import { OnlineTeacherPage } from '../pages/online-teacher/online-teacher';
+import { MarksheetPage } from '../pages/marksheet/marksheet';
+
 @NgModule({
   declarations: [
     MyApp,
+    AnnouncementsPage,
+    AttendancePage,
+    FindschoolPage,
+    HolidayCalenderPage,
+    ImageGalleryPage,
     HomePage,
     ListPage,
     LoginPage,
-    FindschoolPage,
+    LunchMenuPage,
+    MarksheetPage,
     RegistrationPage,
-    SchoolDiaryPage,
-    ImageGalleryPage,
+    OnlineTeacherPage,
     ProfilePage,
+    RegistrationPage,
+    ResultsPage,
     SchoolDiaryPage,
-    LunchMenuPage
   ],
   imports: [
     BrowserModule,
@@ -45,16 +58,22 @@ import { LunchMenuPage } from '../pages/lunch-menu/lunch-menu';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    AnnouncementsPage,
+    AttendancePage,
+    FindschoolPage,
+    HolidayCalenderPage,
+    ImageGalleryPage,
     HomePage,
     ListPage,
     LoginPage,
-    FindschoolPage,
+    LunchMenuPage,
+    MarksheetPage,
     RegistrationPage,
-    SchoolDiaryPage,
-    ImageGalleryPage,
+    OnlineTeacherPage,
     ProfilePage,
+    RegistrationPage,
+    ResultsPage,
     SchoolDiaryPage,
-    LunchMenuPage
   ],
   providers: [
     StatusBar,
