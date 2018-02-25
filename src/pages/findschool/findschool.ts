@@ -25,7 +25,7 @@ export class FindschoolPage {
   isDisabled: boolean = true;
   registeredSchools: any;
   constructor(public platform: Platform, public navCtrl: NavController, public navParams: NavParams,
-    private _fss: FindSchoolService, public spinner: Spinner) {
+     public spinner: Spinner) {
 
   }
 

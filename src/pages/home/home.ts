@@ -8,6 +8,7 @@ import { LunchMenuPage } from '../lunch-menu/lunch-menu';
 import { ResultsPage } from '../results/results';
 import {AnnouncementsPage} from '../announcements/announcements';
 import { Storage } from '@ionic/Storage';
+import { HolidayCalenderPage } from '../holiday-calender/holiday-calender';
 
 @Component({
   selector: 'page-home',
@@ -72,4 +73,7 @@ export class HomePage {
     this.navCtrl.push(AnnouncementsPage, { userType: this.userType });
   }
 
+  onClickHoldiayCalender(){
+    this.navCtrl.push(HolidayCalenderPage);
+  }
 }

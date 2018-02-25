@@ -1,12 +1,15 @@
 page-image-gallery {
 .thumb-img{
-    min-width: 340px;
-    min-height: 226px;
+    // min-width: 340px;
+    // min-height: 226px;
     padding: 10px;
 }
 
 ion-slide.swiper-slide{
-    left:25%;
+  left:25%;
+}
+.slide-zoom {
+    background: #e6e6e6;
 }
 
 }
