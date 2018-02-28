@@ -6,7 +6,7 @@ import { SchoolDiaryPage } from '../school-diary/school-diary';
 import { ImageGalleryPage } from '../image-gallery/image-gallery';
 import { LunchMenuPage } from '../lunch-menu/lunch-menu';
 import { ResultsPage } from '../results/results';
-import {AnnouncementsPage} from '../announcements/announcements';
+import { AnnouncementsPage } from '../announcements/announcements';
 import { Storage } from '@ionic/Storage';
 import { HolidayCalenderPage } from '../holiday-calender/holiday-calender';
 
@@ -17,15 +17,17 @@ import { HolidayCalenderPage } from '../holiday-calender/holiday-calender';
 export class HomePage {
 
   userType: string;
- 
-  constructor(public platform: Platform, public navParams: NavParams, public navCtrl: NavController, public events: Events,public storage: Storage) {
-    events.subscribe('logout', () => {
-      this.logout();
-    });
+
+  constructor(public platform: Platform, public navParams: NavParams, public navCtrl: NavController, public events: Events, public storage: Storage) {
 
     events.subscribe('goToMyProfilePage', () => {
       this.goToMyProfilePage();
     });
+
+    events.subscribe('logout', () => {
+      this.logout();
+    });
+
   }
 
   goToMyProfilePage() {
@@ -33,21 +35,12 @@ export class HomePage {
   }
 
   ngOnInit() {
-    this.storage.get("userType").then(userType=>{
+    this.storage.get("userType").then(userType => {
       this.userType = String(userType);
       console.log("usertype in dashboard:", this.userType);
-      // if(this.userType == "Parent") {
-      //   this.parentMenu = true;
-      // } else if (this.userType == "Teacher") {
-      //   this.teacherMenu = true;
-      // } else if (this.userType == "Admin") {
-      //   this.adminMenu = true;
-      // } else if (this.userType == "Driver") {
-      //   this.driverMenu = true;
-      // }
     })
-    
-   
+
+
   }
   logout() {
     this.navCtrl.push(FindschoolPage);
@@ -69,11 +62,11 @@ export class HomePage {
     this.navCtrl.push(ResultsPage);
   }
 
-  onClickAnnouncements(){
+  onClickAnnouncements() {
     this.navCtrl.push(AnnouncementsPage, { userType: this.userType });
   }
 
-  onClickHoldiayCalender(){
+  onClickHoldiayCalender() {
     this.navCtrl.push(HolidayCalenderPage);
   }
 }

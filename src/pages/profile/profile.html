@@ -14,5 +14,14 @@
 
 
 <ion-content padding>
-  This is Profile Page
+  <ion-slides (ionSlideDidChange)="slideChanged()" pager>
+    <ion-slide>
+      <h1>Viha</h1>
+    </ion-slide>
+    <ion-slide>
+      <h1>Vivaan</h1>
+    </ion-slide>
+  </ion-slides>
+
+
 </ion-content>
