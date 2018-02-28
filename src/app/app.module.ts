@@ -5,7 +5,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { JsonpModule } from '@angular/http';
-
+import { NgCalendarModule  } from 'ionic2-calendar';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -25,7 +25,9 @@ import { AnnouncementsPage } from '../pages/announcements/announcements';
 import { AttendancePage } from '../pages/attendance/attendance';
 import { HolidayCalenderPage } from '../pages/holiday-calender/holiday-calender';
 import { OnlineTeacherPage } from '../pages/online-teacher/online-teacher';
-import { MarksheetPage } from '../pages/marksheet/marksheet';
+//import { MarksheetPage } from '../pages/marksheet/marksheet';
+
+import {IonicStorageModule} from '@ionic/Storage';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,7 @@ import { MarksheetPage } from '../pages/marksheet/marksheet';
     ListPage,
     LoginPage,
     LunchMenuPage,
-    MarksheetPage,
+    //MarksheetPage,
     RegistrationPage,
     OnlineTeacherPage,
     ProfilePage,
@@ -49,11 +51,13 @@ import { MarksheetPage } from '../pages/marksheet/marksheet';
   ],
   imports: [
     BrowserModule,
+    NgCalendarModule,
     IonicModule.forRoot(MyApp),
     HttpModule, 
     HttpClientModule,
     JsonpModule,
-    IonicImageViewerModule
+    IonicImageViewerModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -67,7 +71,7 @@ import { MarksheetPage } from '../pages/marksheet/marksheet';
     ListPage,
     LoginPage,
     LunchMenuPage,
-    MarksheetPage,
+    //MarksheetPage,
     RegistrationPage,
     OnlineTeacherPage,
     ProfilePage,

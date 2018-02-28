@@ -25,7 +25,7 @@ export class FindschoolPage {
   isDisabled: boolean = true;
   registeredSchools: any;
   constructor(public platform: Platform, public navCtrl: NavController, public navParams: NavParams,
-    private _fss: FindSchoolService, public spinner: Spinner) {
+     public spinner: Spinner) {
 
   }
 
@@ -46,9 +46,9 @@ export class FindschoolPage {
         {school_name : 'Delhi Public School', school_address : 'Lanco Hills', school_id : '2', school_db : '2'}
       ]
   }
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad FindschoolPage');
-  }
+  // ionViewDidLoad() {
+  //   console.log('ionViewDidLoad FindschoolPage');
+  // }
 
   getMeToLogin() {
     this.navCtrl.push(LoginPage, { selectedSchool: this.selectedSchool, selectedSchoolId: this.selectedSchoolId, selectedSchoolDB: this.selectedSchoolDB });

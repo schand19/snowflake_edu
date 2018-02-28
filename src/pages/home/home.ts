@@ -6,7 +6,9 @@ import { SchoolDiaryPage } from '../school-diary/school-diary';
 import { ImageGalleryPage } from '../image-gallery/image-gallery';
 import { LunchMenuPage } from '../lunch-menu/lunch-menu';
 import { ResultsPage } from '../results/results';
-
+import {AnnouncementsPage} from '../announcements/announcements';
+import { Storage } from '@ionic/Storage';
+import { HolidayCalenderPage } from '../holiday-calender/holiday-calender';
 
 @Component({
   selector: 'page-home',
@@ -15,12 +17,8 @@ import { ResultsPage } from '../results/results';
 export class HomePage {
 
   userType: string;
-  parentMenu: boolean;
-  teacherMenu: boolean;
-  adminMenu: boolean;
-  driverMenu: boolean;
-  constructor(public platform: Platform, public navParams: NavParams, public navCtrl: NavController, public events: Events) {
-    this.userType = navParams.get('userType');
+ 
+  constructor(public platform: Platform, public navParams: NavParams, public navCtrl: NavController, public events: Events,public storage: Storage) {
     events.subscribe('logout', () => {
       this.logout();
     });
@@ -35,30 +33,29 @@ export class HomePage {
   }
 
   ngOnInit() {
-
-    console.log("usertype in dashboard:", this.userType);
-    if (this.userType == "Parent") {
-      this.parentMenu = true;
-    } else if (this.userType == "Teacher") {
-      this.teacherMenu = true;
-    } else if (this.userType == "Admin") {
-      this.adminMenu = true;
-    } else if (this.userType == "Driver") {
-      this.driverMenu = true;
-    }
+    this.storage.get("userType").then(userType=>{
+      this.userType = String(userType);
+      console.log("usertype in dashboard:", this.userType);
+      // if(this.userType == "Parent") {
+      //   this.parentMenu = true;
+      // } else if (this.userType == "Teacher") {
+      //   this.teacherMenu = true;
+      // } else if (this.userType == "Admin") {
+      //   this.adminMenu = true;
+      // } else if (this.userType == "Driver") {
+      //   this.driverMenu = true;
+      // }
+    })
+    
+   
   }
   logout() {
     this.navCtrl.push(FindschoolPage);
   }
 
   onClickDiary(userType) {
-    if (userType == "Parent") {
-    } else if (userType == "Teacher") {
-
-    }
     this.navCtrl.push(SchoolDiaryPage, { userType: this.userType });
   }
-
 
   onClickImageGallery() {
     this.navCtrl.push(ImageGalleryPage);
@@ -69,7 +66,14 @@ export class HomePage {
   }
 
   goToResults(eve) {
-    this.navCtrl.push(ResultsPage)
+    this.navCtrl.push(ResultsPage);
   }
 
+  onClickAnnouncements(){
+    this.navCtrl.push(AnnouncementsPage, { userType: this.userType });
+  }
+
+  onClickHoldiayCalender(){
+    this.navCtrl.push(HolidayCalenderPage);
+  }
 }
