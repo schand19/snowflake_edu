@@ -15,11 +15,9 @@
 
 <ion-content padding>
   <ion-slides (ionSlideDidChange)="slideChanged()" pager>
-    <ion-slide>
-      <h1>Viha</h1>
-    </ion-slide>
-    <ion-slide>
-      <h1>Vivaan</h1>
+    <ion-slide *ngFor="let profile of profiles">
+      <div><img [src]="profile.imageSrc">{{profile.fullName}}</div>
+      <!-- <ion-img style="width: 80px; height: 80px;" [src]="profile.imageSrc"></ion-img>{{profile.fullName}} -->
     </ion-slide>
   </ion-slides>
 
