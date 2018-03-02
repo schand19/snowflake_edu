@@ -14,11 +14,10 @@
 
 
 <ion-content padding>
-    <ion-item>
-        <ion-label>Filter by Date</ion-label>
-        <ion-datetime type="datetime-local" displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
-      </ion-item>
-      
+    <ion-item class="dateWidget">
+        <ion-label>Filter by Date:</ion-label>
+        <ion-datetime type="datetime-local" displayFormat="DD/MM/YYYY" [(ngModel)]="myDate"></ion-datetime>
+    </ion-item>
       <div  *ngIf="userType == 'Parent' || userType == 'Teacher'">
     <ion-card *ngFor="let announcement of schoolAnnouncementObject">
       <ion-card-content class="card">

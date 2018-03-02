@@ -17,6 +17,7 @@ export class SchoolDiaryPage {
   userType:string;
   schooldiaryObject=[];
   parentDiaryView:boolean;
+  
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.userType = navParams.get('userType');
   }

@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { FindSchoolService } from '../../services/findSchool.service';
 import { Spinner } from '../../utilities/spinner';
-
+import {Storage} from '@ionic/Storage';
 /**
  * Generated class for the FindschoolPage page.
  *
@@ -25,7 +25,7 @@ export class FindschoolPage {
   isDisabled: boolean = true;
   registeredSchools: any;
   constructor(public platform: Platform, public navCtrl: NavController, public navParams: NavParams,
-     public spinner: Spinner) {
+     public spinner: Spinner, public storage: Storage) {
 
   }
 
@@ -41,6 +41,7 @@ export class FindschoolPage {
       () => {
         spinner.dismiss();
       }); */
+      this.storage.clear();
       this.registeredSchools = [
         {school_name : 'Hyderabad Public School', school_address : 'Lingampally', school_id : '1', school_db : '1'},
         {school_name : 'Delhi Public School', school_address : 'Lanco Hills', school_id : '2', school_db : '2'}
