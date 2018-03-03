@@ -21,17 +21,13 @@ export class HomePage {
 
   constructor(public platform: Platform, public navParams: NavParams, public navCtrl: NavController, public events: Events, public storage: Storage) {
 
-    events.subscribe('goToMyProfilePage', () => {
-      this.goToMyProfilePage();
-    });
-
     events.subscribe('logout', () => {
       this.logout();
     });
 
   }
 
-  goToMyProfilePage() {
+  openProfilePage() {
     this.navCtrl.push(ProfilePage);
   }
 
@@ -40,9 +36,8 @@ export class HomePage {
       this.userType = String(userType);
       console.log("usertype in dashboard:", this.userType);
     })
-
-
   }
+
   logout() {
     this.navCtrl.push(FindschoolPage);
   }

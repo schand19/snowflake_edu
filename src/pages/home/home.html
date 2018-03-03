@@ -10,7 +10,7 @@
       </button>
     </ion-buttons>
     <ion-buttons end>
-      <button ion-button icon-only>
+      <button ion-button icon-only (click)="openProfilePage()">
         <ion-icon name="contact"></ion-icon>
       </button>
     </ion-buttons>
@@ -18,7 +18,6 @@
 </ion-header>
 
 <ion-content>
-
   <ion-grid *ngIf="userType == 'Parent'" class="thumbgrid">
     <ion-row (click)="onClickDiary('parent')" class="thumbrow">
 
@@ -85,6 +84,72 @@
       </ion-row>
 
   </ion-grid>
+  <!-- <ion-grid *ngIf="userType == 'Parent'" class="thumbgrid">
+    <ion-row (click)="onClickDiary('parent')" class="thumbrow">
+
+      <ion-col col col-3 class="thumb2">
+        <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/school dairy.png"></ion-img>
+      </ion-col>
+      <ion-col col col-9 class="thumb2 titleMenu">
+        <p>School Diary</p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row (click)="onClickAttendance()" class="thumbrow">
+      <ion-col col col-3 class="thumb2 col-100">
+        <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/exam results.png"></ion-img>
+      </ion-col>
+      <ion-col col col-9 class="thumb2 titleMenu">
+        <p>Attendance</p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row (click)="onClickAnnouncements()" class="thumbrow">
+      <ion-col col col-3 class="thumb2 col-100">
+        <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/megaphone-2.png"></ion-img>
+      </ion-col>
+      <ion-col col col-9 class="thumb2 titleMenu">
+        <p>Announcements</p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row (click)="onClickImageGallery()" class="thumbrow">
+      <ion-col col col-3 class="thumb2 col-100">
+        <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/image gallary.png"></ion-img>
+      </ion-col>
+      <ion-col col col-9 class="thumb2 titleMenu">
+        <p>Image Gallery</p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row (click)="onClickHoldiayCalender()" class="thumbrow">
+      <ion-col col col-3 class="thumb2 col-100">
+        <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/weekly-calendar.png"></ion-img>
+      </ion-col>
+      <ion-col col col-9 class="thumb2 titleMenu">
+        <p>Holiday Calendar</p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="thumbrow" (click)="goToResults($event)">
+      <ion-col col col-3 class="thumb2 col-100">
+        <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/target.png"></ion-img>
+      </ion-col>
+      <ion-col col col-9 class="thumb2 titleMenu">
+        <p>View Results</p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="thumbrow" (click)="goToLunchMenu($event)">
+        <ion-col col col-3 class="thumb2 col-100">
+          <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/lunch menu.png"></ion-img>
+        </ion-col>
+        <ion-col col col-9 class="thumb2 titleMenu">
+          <p>Lunch Menu</p>
+        </ion-col>
+      </ion-row>
+
+  </ion-grid> -->
 
   <ion-grid *ngIf="userType == 'Teacher'"  class="thumbgrid">
     <ion-row class="thumbrow">

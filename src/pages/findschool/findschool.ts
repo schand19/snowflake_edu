@@ -26,7 +26,6 @@ export class FindschoolPage {
   registeredSchools: any;
   constructor(public platform: Platform, public navCtrl: NavController, public navParams: NavParams,
      public spinner: Spinner, public storage: Storage) {
-
   }
 
   ngOnInit() {

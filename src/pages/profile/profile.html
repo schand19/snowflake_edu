@@ -5,21 +5,63 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
     <ion-title>Profile</ion-title>
   </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
   <ion-slides (ionSlideDidChange)="slideChanged()" pager>
     <ion-slide *ngFor="let profile of profiles">
-      <div><img [src]="profile.imageSrc">{{profile.fullName}}</div>
+      <div>
+        <img [src]="profile.imageSrc">
+      </div>
       <!-- <ion-img style="width: 80px; height: 80px;" [src]="profile.imageSrc"></ion-img>{{profile.fullName}} -->
     </ion-slide>
   </ion-slides>
+</ion-header>
 
-
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      Name
+    </ion-card-header>
+    <ion-card-content>
+      {{currentProfile.fullName}}
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      Roll Number
+    </ion-card-header>
+    <ion-card-content>
+      {{currentProfile.rollNumber}}
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      Class
+    </ion-card-header>
+    <ion-card-content>
+      {{currentProfile.className}}
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      Section
+    </ion-card-header>
+    <ion-card-content>
+      {{currentProfile.section}}
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      Class Teacher
+    </ion-card-header>
+    <ion-card-content>
+      {{currentProfile.classTeacher}}
+    </ion-card-content>
+  </ion-card>
 </ion-content>
+<ion-footer>
+  <ion-toolbar align="center" (click)="changeProfile()">
+    <ion-title>Choose this Profile</ion-title>
+  </ion-toolbar>
+</ion-footer>

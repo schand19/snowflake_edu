@@ -24,7 +24,6 @@ export class AnnouncementsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad AnnouncementsPage');
     this.onAnnouncementLoad();
-
   }
   
   onAnnouncementLoad() {
