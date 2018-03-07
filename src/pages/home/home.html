@@ -18,72 +18,84 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid *ngIf="userType == 'Parent'" class="thumbgrid">
-    <ion-row (click)="onClickDiary('parent')" class="thumbrow">
+  <ion-list *ngIf="userType == 'Parent'">
+    <ion-item (click)="onClickDiary('parent')">
+      <ion-thumbnail item-start>
+          <ion-icon name="paper"></ion-icon>
+      </ion-thumbnail>
+      <h2>School Diary</h2>
+      <p>School Diary</p>
+      <!-- <button ion-button clear item-end>View</button> -->
+    </ion-item>
 
-      <ion-col col col-3 class="thumb2">
-        <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/school dairy.png"></ion-img>
-      </ion-col>
-      <ion-col col col-9 class="thumb2 titleMenu">
-        <p>School Diary</p>
-      </ion-col>
-    </ion-row>
+    <ion-item (click)="onClickAttendance()">
+      <ion-thumbnail item-start>
+        <!-- <img src="img/thumbnail-totoro.png"> -->
+        <!-- <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/exam results.png"></ion-img> -->
+        <ion-icon name="clipboard"></ion-icon>
+      </ion-thumbnail>
+      <h2>Attendance</h2>
+      <p>Attendance</p>
+      <!-- <button ion-button clear item-end>View</button> -->
+    </ion-item>
 
-    <ion-row (click)="onClickAttendance()" class="thumbrow">
-      <ion-col col col-3 class="thumb2 col-100">
-        <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/exam results.png"></ion-img>
-      </ion-col>
-      <ion-col col col-9 class="thumb2 titleMenu">
-        <p>Attendance</p>
-      </ion-col>
-    </ion-row>
+    <ion-item (click)="onClickAnnouncements('parent')">
+      <ion-thumbnail item-start>
+        <!-- <img src="img/thumbnail-totoro.png"> -->
+        <!-- <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/megaphone-2.png"></ion-img> -->
+        <ion-icon name="megaphone"></ion-icon>
+      </ion-thumbnail>
+      <h2>Announcements</h2>
+      <p>Announcements</p>
+      <!-- <button ion-button clear item-end>View</button> -->
+    </ion-item>
+    
+    <ion-item (click)="onClickImageGallery('parent')">
+      <ion-thumbnail item-start>
+        <!-- <img src="img/thumbnail-totoro.png"> -->
+        <!-- <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/image gallary.png"></ion-img> -->
+        <ion-icon name="images"></ion-icon>
+      </ion-thumbnail>
+      <h2>Image Gallery</h2>
+      <p>Image Gallery</p>
+      <!-- <button ion-button clear item-end>View</button> -->
+    </ion-item>
 
-    <ion-row (click)="onClickAnnouncements()" class="thumbrow">
-      <ion-col col col-3 class="thumb2 col-100">
-        <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/megaphone-2.png"></ion-img>
-      </ion-col>
-      <ion-col col col-9 class="thumb2 titleMenu">
-        <p>Announcements</p>
-      </ion-col>
-    </ion-row>
+    <ion-item (click)="onClickHoldiayCalender('parent')">
+      <ion-thumbnail item-start>
+        <!-- <img src="img/thumbnail-totoro.png"> -->
+        <!-- <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/weekly-calendar.png"></ion-img> -->
+        <ion-icon name="calendar"></ion-icon>
+      </ion-thumbnail>
+      <h2>Holiday Calendar</h2>
+      <p>Holiday Calendar</p>
+      <!-- <button ion-button clear item-end>View</button> -->
+    </ion-item>
 
-    <ion-row (click)="onClickImageGallery()" class="thumbrow">
-      <ion-col col col-3 class="thumb2 col-100">
-        <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/image gallary.png"></ion-img>
-      </ion-col>
-      <ion-col col col-9 class="thumb2 titleMenu">
-        <p>Image Gallery</p>
-      </ion-col>
-    </ion-row>
+    <ion-item (click)="goToResults('parent')">
+      <ion-thumbnail item-start>
+        <!-- <img src="img/thumbnail-totoro.png"> -->
+        <!-- <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/target.png"></ion-img> -->
+        <ion-icon name="school"></ion-icon>
+      </ion-thumbnail>
+      <h2>View Results</h2>
+      <p>View Results</p>
+      <!-- <button ion-button clear item-end>View</button> -->
+    </ion-item>
 
-    <ion-row (click)="onClickHoldiayCalender()" class="thumbrow">
-      <ion-col col col-3 class="thumb2 col-100">
-        <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/weekly-calendar.png"></ion-img>
-      </ion-col>
-      <ion-col col col-9 class="thumb2 titleMenu">
-        <p>Holiday Calendar</p>
-      </ion-col>
-    </ion-row>
-
-    <ion-row class="thumbrow" (click)="goToResults($event)">
-      <ion-col col col-3 class="thumb2 col-100">
-        <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/target.png"></ion-img>
-      </ion-col>
-      <ion-col col col-9 class="thumb2 titleMenu">
-        <p>View Results</p>
-      </ion-col>
-    </ion-row>
-
-    <ion-row class="thumbrow" (click)="goToLunchMenu($event)">
-        <ion-col col col-3 class="thumb2 col-100">
-          <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/lunch menu.png"></ion-img>
-        </ion-col>
-        <ion-col col col-9 class="thumb2 titleMenu">
-          <p>Lunch Menu</p>
-        </ion-col>
-      </ion-row>
-
-  </ion-grid>
+    <ion-item (click)="goToLunchMenu('parent')">
+      <ion-thumbnail item-start>
+        <!-- <img src="img/thumbnail-totoro.png"> -->
+        <!-- <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/lunch menu.png"></ion-img> -->
+        <ion-icon name="restaurant"></ion-icon>
+      </ion-thumbnail>
+      <h2>Lunch Menu</h2>
+      <p>Lunch Menu</p>
+      <!-- <button ion-button clear item-end>View</button> -->
+    </ion-item>
+    
+  </ion-list>
+ 
   <!-- <ion-grid *ngIf="userType == 'Parent'" class="thumbgrid">
     <ion-row (click)="onClickDiary('parent')" class="thumbrow">
 
@@ -151,7 +163,7 @@
 
   </ion-grid> -->
 
-  <ion-grid *ngIf="userType == 'Teacher'"  class="thumbgrid">
+  <ion-grid *ngIf="userType == 'Teacher'" class="thumbgrid">
     <ion-row class="thumbrow">
       <ion-col col col-3 class="thumb2">
         <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/school dairy.png"></ion-img>
@@ -224,19 +236,19 @@
       </ion-col>
     </ion-row>
 
- 
+
     <ion-row class="thumbrow">
-        <ion-col col col-3 class="thumb2 col-100">
-          <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/chat icon 2.png"></ion-img>
-        </ion-col>
-        <ion-col col col-9 class="thumb2 titleMenu">
-          <p>Online Teacher</p>
-        </ion-col>
-      </ion-row>
+      <ion-col col col-3 class="thumb2 col-100">
+        <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/chat icon 2.png"></ion-img>
+      </ion-col>
+      <ion-col col col-9 class="thumb2 titleMenu">
+        <p>Online Teacher</p>
+      </ion-col>
+    </ion-row>
 
   </ion-grid>
 
-  <ion-grid *ngIf="userType == 'Admin'"  class="thumbgrid">
+  <ion-grid *ngIf="userType == 'Admin'" class="thumbgrid">
     <ion-row class="thumbrow">
       <ion-col col col-3 class="thumb2">
         <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/school dairy.png"></ion-img>
@@ -329,7 +341,7 @@
 
   </ion-grid>
 
-  <ion-grid *ngIf="userType == 'Driver'"  class="thumbgrid">
+  <ion-grid *ngIf="userType == 'Driver'" class="thumbgrid">
 
     <ion-row class="thumbrow">
       <ion-col col col-3 class="thumb2 col-100">
