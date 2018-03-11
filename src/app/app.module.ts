@@ -12,6 +12,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { FeesPage } from '../pages/fees/fees';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { FindschoolPage } from '../pages/findschool/findschool';
@@ -34,6 +35,7 @@ import {IonicStorageModule} from '@ionic/Storage';
     MyApp,
     AnnouncementsPage,
     AttendancePage,
+    FeesPage,
     FindschoolPage,
     HolidayCalenderPage,
     ImageGalleryPage,
@@ -64,6 +66,7 @@ import {IonicStorageModule} from '@ionic/Storage';
     MyApp,
     AnnouncementsPage,
     AttendancePage,
+    FeesPage,
     FindschoolPage,
     HolidayCalenderPage,
     ImageGalleryPage,

@@ -10,6 +10,7 @@ import { AnnouncementsPage } from '../announcements/announcements';
 import { Storage } from '@ionic/Storage';
 import { HolidayCalenderPage } from '../holiday-calender/holiday-calender';
 import { AttendancePage } from '../attendance/attendance';
+import { FeesPage } from '../fees/fees';
 
 @Component({
   selector: 'page-home',
@@ -25,6 +26,10 @@ export class HomePage {
       this.logout();
     });
 
+  }
+
+  openFeesPage () {
+    this.navCtrl.push(FeesPage);
   }
 
   openProfilePage() {
