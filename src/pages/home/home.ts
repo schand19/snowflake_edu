@@ -9,7 +9,7 @@ import { ResultsPage } from '../results/results';
 import { AnnouncementsPage } from '../announcements/announcements';
 import { Storage } from '@ionic/Storage';
 import { HolidayCalenderPage } from '../holiday-calender/holiday-calender';
-import { AttendancePage } from '../attendance/attendance';
+import { ViewAttendancePage } from '../view-attendance/view-attendance';
 import { FeesPage } from '../fees/fees';
 
 @Component({
@@ -71,7 +71,7 @@ export class HomePage {
     this.navCtrl.push(HolidayCalenderPage);
   }
 
-  onClickAttendance(){
-    this.navCtrl.push(AttendancePage, { userType: this.userType });
+  viewAttendance(){
+    this.navCtrl.push(ViewAttendancePage, { userType: this.userType });
   }
 }

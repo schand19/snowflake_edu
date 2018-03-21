@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { FeeDetailsPage } from '../fee-details/fee-details';
 
 /**
  * Generated class for the DuesPage page.
@@ -22,40 +23,44 @@ export class DuesPage implements OnInit {
   ionViewDidLoad() {
     console.log('ionViewDidLoad DuesPage');
   }
-  
-  ngOnInit(){
+
+  ngOnInit() {
     this.duesList = [
       {
-        invoiceNumber:'564465465',
-        fee: '2500' ,
+        invoiceNumber: '564465465',
+        fee: '2500',
         dueDate: '12/04/2018',
         feeType: 'Tution'
       },
       {
-        invoiceNumber:'564465465',
-        fee: '500' ,
+        invoiceNumber: '564465465',
+        fee: '500',
         dueDate: '12/04/2018',
         feeType: 'Sport'
       },
       {
-        invoiceNumber:'564465465',
-        fee: '500' ,
+        invoiceNumber: '564465465',
+        fee: '500',
         dueDate: '12/04/2018',
         feeType: 'Gim'
       },
       {
-        invoiceNumber:'564465465',
-        fee: '1500' ,
+        invoiceNumber: '564465465',
+        fee: '1500',
         dueDate: '12/04/2018',
         feeType: 'Exam'
       },
       {
-        invoiceNumber:'564465465',
-        fee: '1000' ,
+        invoiceNumber: '564465465',
+        fee: '1000',
         dueDate: '12/04/2018',
         feeType: 'Dance'
       }
     ]
+  }
+
+  getFeeSummary(due) {
+    this.navCtrl.push(FeeDetailsPage, { due: due });
   }
 
 }

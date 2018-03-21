@@ -11,6 +11,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { MyApp } from './app.component';
+import { AttendancePage } from '../pages/attendance/attendance'
 import { HomePage } from '../pages/home/home';
 import { FeesPage } from '../pages/fees/fees';
 import { ListPage } from '../pages/list/list';
@@ -23,19 +24,22 @@ import { ImageGalleryPage } from '../pages/image-gallery/image-gallery';
 import { LunchMenuPage } from '../pages/lunch-menu/lunch-menu';
 import { ResultsPage } from '../pages/results/results';
 import { AnnouncementsPage } from '../pages/announcements/announcements';
-import { AttendancePage } from '../pages/attendance/attendance';
+import { ViewAttendancePage } from '../pages/view-attendance/view-attendance';
 import { HolidayCalenderPage } from '../pages/holiday-calender/holiday-calender';
 import { OnlineTeacherPage } from '../pages/online-teacher/online-teacher';
 import { MarksheetPage } from '../pages/marksheet/marksheet';
 
 import {IonicStorageModule} from '@ionic/Storage';
+import { FeeDetailsPage } from '../pages/fee-details/fee-details';
 
 @NgModule({
   declarations: [
     MyApp,
     AnnouncementsPage,
     AttendancePage,
+    ViewAttendancePage,
     FeesPage,
+    FeeDetailsPage,
     FindschoolPage,
     HolidayCalenderPage,
     ImageGalleryPage,
@@ -64,9 +68,11 @@ import {IonicStorageModule} from '@ionic/Storage';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AnnouncementsPage,
     AttendancePage,
+    AnnouncementsPage,
+    ViewAttendancePage,
     FeesPage,
+    FeeDetailsPage,
     FindschoolPage,
     HolidayCalenderPage,
     ImageGalleryPage,

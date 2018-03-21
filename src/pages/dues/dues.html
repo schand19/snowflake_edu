@@ -14,7 +14,7 @@
 
 <ion-content padding>
     <ion-card *ngFor="let due of duesList">
-      <ion-card-content class="card">
+      <ion-card-content class="card"  (click)="getFeeSummary(due)">
         <ion-row>
           <ion-col>
             <span><a class="sideHeading">Fee Description:</a> {{due.feeType}}</span>
