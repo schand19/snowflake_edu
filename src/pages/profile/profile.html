@@ -5,9 +5,10 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>Profile</ion-title>
   </ion-navbar>
+  <ion-title class="sideHeading" *ngIf="profiles?.length > 1"> Please swipe to view other Profile</ion-title>
   <ion-slides (ionSlideDidChange)="slideChanged()" pager>
     <ion-slide *ngFor="let profile of profiles">
       <div>
@@ -16,6 +17,9 @@
       <!-- <ion-img style="width: 80px; height: 80px;" [src]="profile.imageSrc"></ion-img>{{profile.fullName}} -->
     </ion-slide>
   </ion-slides>
+  <ion-toolbar align="center" (click)="changeProfile()">
+    <ion-title>Choose this Profile</ion-title>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
@@ -60,8 +64,3 @@
     </ion-card-content>
   </ion-card>
 </ion-content>
-<ion-footer>
-  <ion-toolbar align="center" (click)="changeProfile()">
-    <ion-title>Choose this Profile</ion-title>
-  </ion-toolbar>
-</ion-footer>
