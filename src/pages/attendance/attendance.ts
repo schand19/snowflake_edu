@@ -14,12 +14,29 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'attendance.html',
 })
 export class AttendancePage {
-
+  students: {rollNo: string, studentName: string; attendanceStatus: string}[];
+  attendanceCass;
+  period;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AttendancePage');
+  }
+
+  fetchStudents(){
+    this.students = [
+      {rollNo: '1', studentName:'Sarath', attendanceStatus:'p'},
+      {rollNo: '2', studentName:'Pradeep', attendanceStatus:'p'},
+      {rollNo: '3', studentName:'Vinod', attendanceStatus:'p'}
+    ];
+  }
+
+  onChange(event,student){
+    student.attendanceStatus = event.target.value;
+  }
+  submitAttendance(){
+    console.log(this.students);
   }
 
 }

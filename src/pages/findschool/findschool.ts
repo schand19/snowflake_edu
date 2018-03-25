@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { LoginPage } from '../login/login';
-import { FindSchoolService } from '../../services/findSchool.service';
+import { Services } from '../../services/services';
 import { Spinner } from '../../utilities/spinner';
 import {Storage} from '@ionic/Storage';
 /**
@@ -15,9 +15,9 @@ import {Storage} from '@ionic/Storage';
 @Component({
   selector: 'page-findschool',
   templateUrl: 'findschool.html',
-  providers: [FindSchoolService, Spinner]
+  providers: [Services, Spinner]
 })
-export class FindschoolPage {
+export class FindschoolPage implements OnInit {
   schools: string[];
   selectedSchool: string;
   selectedSchoolId: string;
@@ -25,13 +25,16 @@ export class FindschoolPage {
   isDisabled: boolean = true;
   registeredSchools: any;
   constructor(public platform: Platform, public navCtrl: NavController, public navParams: NavParams,
-     public spinner: Spinner, public storage: Storage) {
+     public spinner: Spinner, public storage: Storage, private services: Services) {
   }
 
   ngOnInit() {
-    //let spinner = this.spinner.start({ loaderText: 'Fetching Schools' });
-    /* this._fss.getRegisteredSchools().subscribe(
+    this.storage.clear();
+    
+    let spinner = this.spinner.start({ loaderText: 'Fetching Schools' });
+    this.services.getRegisteredSchools().subscribe(
       registeredSchools => {
+        console.log(registeredSchools);
         this.registeredSchools = registeredSchools.data;
       },
       err => {
@@ -39,24 +42,23 @@ export class FindschoolPage {
       },
       () => {
         spinner.dismiss();
-      }); */
-      this.storage.clear();
-      this.registeredSchools = [
+      });
+      /* this.registeredSchools = [
         {school_name : 'Hyderabad Public School', school_address : 'Lingampally', school_id : '1', school_db : '1'},
         {school_name : 'Delhi Public School', school_address : 'Lanco Hills', school_id : '2', school_db : '2'}
-      ]
+      ] */
   }
   // ionViewDidLoad() {
   //   console.log('ionViewDidLoad FindschoolPage');
   // }
 
   getMeToLogin() {
-    this.navCtrl.push(LoginPage, { selectedSchool: this.selectedSchool, selectedSchoolId: this.selectedSchoolId, selectedSchoolDB: this.selectedSchoolDB });
+    this.navCtrl.push(LoginPage, { selectedSchool: this.selectedSchool, selectedSchoolId: this.selectedSchoolId/* , selectedSchoolDB: this.selectedSchoolDB */ });
   }
   selectOption(value) {
-    this.selectedSchool = value.school_name + ', ' + value.school_address;
-    this.selectedSchoolId = value['school_id'];
-    this.selectedSchoolDB = value['school_db'];
+    this.selectedSchool = value.vSchoolName + ', ' + value.address;
+    this.selectedSchoolId = value['iSchoolId'];
+    // this.selectedSchoolDB = value['school_db'];
     this.isDisabled = false;
     this.schools = [];
   }
@@ -72,10 +74,10 @@ export class FindschoolPage {
     // if the value is an empty string don't filter the items
     if (val && val.trim() != '') {
       this.schools = this.registeredSchools.filter((school) => {
-        if (school['school_name'].toLowerCase() + ', ' + school['school_address'].toLowerCase() != val.toLowerCase()) {
+        if (school['vSchoolName'].toLowerCase() + ', ' + school['address'].toLowerCase() != val.toLowerCase()) {
           this.isDisabled = true;
         }
-        return ((school['school_name'].toLowerCase() + ', ' + school['school_address'].toLowerCase()).indexOf(val.toLowerCase()) > -1);
+        return ((school['vSchoolName'].toLowerCase() + ', ' + school['address'].toLowerCase()).indexOf(val.toLowerCase()) > -1);
       });
     }
   }

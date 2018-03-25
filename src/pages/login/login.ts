@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Services } from '../../services/services';
 import { FindschoolPage } from '../findschool/findschool';
 import { RegistrationPage } from '../registration/registration';
 import { HomePage } from '../home/home';
 import { Storage } from '@ionic/Storage';
+import { Spinner } from '../../utilities/spinner';
 
 /**
  * Generated class for the LoginPage page.
@@ -16,12 +18,14 @@ import { Storage } from '@ionic/Storage';
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
+  providers:[Services, Spinner]
 })
 export class LoginPage {
   selectedSchoolId: string;
   selectedSchoolDB: string;
   selectedSchool: string;
   hasSchoolImage: boolean = false;
+  phoneNumber: number;
   /* userName:string;
   password:string; */
 
@@ -31,10 +35,11 @@ export class LoginPage {
   showLoginButton: boolean = false;
   userType: string;
   isRemember: boolean;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, 
+    public spinner: Spinner, private services: Services) {
     this.selectedSchool = navParams.get('selectedSchool');
     this.selectedSchoolId = navParams.get('selectedSchoolId');
-    this.selectedSchoolDB = navParams.get('selectedSchoolDB');
+    //this.selectedSchoolDB = navParams.get('selectedSchoolDB');
   }
 
   ionViewDidLoad() {
@@ -46,17 +51,31 @@ export class LoginPage {
   }
 
   getMeToRegistration() {
-    this.navCtrl.push(RegistrationPage, { selectedSchool: this.selectedSchool, selectedSchoolId: this.selectedSchoolId, selectedSchoolDB: this.selectedSchoolDB });
+    this.navCtrl.push(RegistrationPage, { selectedSchool: this.selectedSchool, selectedSchoolId: this.selectedSchoolId });
   }
 
   validatePhone(phoneNumber) {
     this.isSendOTPDisabled = true;
     if (phoneNumber.toString().length == 10) {
+      this.phoneNumber = phoneNumber;
+      
       this.isSendOTPDisabled = false;
     }
   }
 
   sendOTP() {
+    /* let spinner = this.spinner.start({ loaderText: '' });
+    this.services.getOTP(this.selectedSchoolId, this.phoneNumber).subscribe(
+      otp => {
+        console.log(otp);
+      },
+      err => {
+        spinner.dismiss();
+        alert('Unable to fetch otp, try again after sometime');
+      },
+      () => {
+        spinner.dismiss();
+      }); */
     this.showOtpField = true;
   }
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, Platform, Events, NavParams } from 'ionic-angular';
 import { ProfilePage } from '../profile/profile';
+import { AttendancePage } from '../attendance/attendance';
 import { FindschoolPage } from '../findschool/findschool';
 import { SchoolDiaryPage } from '../school-diary/school-diary';
 import { ImageGalleryPage } from '../image-gallery/image-gallery';
@@ -28,7 +29,11 @@ export class HomePage {
 
   }
 
-  openFeesPage () {
+  takeAttendance() {
+    this.navCtrl.push(AttendancePage);
+  }
+
+  openFeesPage() {
     this.navCtrl.push(FeesPage);
   }
 
@@ -71,7 +76,7 @@ export class HomePage {
     this.navCtrl.push(HolidayCalenderPage);
   }
 
-  viewAttendance(){
+  viewAttendance() {
     this.navCtrl.push(ViewAttendancePage, { userType: this.userType });
   }
 }

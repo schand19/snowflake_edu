@@ -7,12 +7,64 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>attendance</ion-title>
+    <ion-title>Attendance</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <div *ngIf="!students">
+    <ion-item>
+      <ion-label>Class</ion-label>
+      <ion-select [(ngModel)]="attendanceClass">
+        <ion-option>7 A</ion-option>
+        <ion-option>7 B</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Period</ion-label>
+      <ion-select [(ngModel)]="period">
+        <ion-option>Telugu</ion-option>
+        <ion-option>Hindi</ion-option>
+        <ion-option>English</ion-option>
+        <ion-option>Mathematics</ion-option>
+        <ion-option>Science</ion-option>
+        <ion-option>Social</ion-option>
+      </ion-select>
+    </ion-item>
+    <button ion-button full  (click)="fetchStudents()">Fetch Students</button>
+  </div>
 
+  <div *ngIf="students">
+    <h3>{{attendanceClass}} : {{period}} </h3>
+    <table>
+      <thead>
+        <tr>
+          <th>R.No</th>
+          <th>Name</th>
+          <th>Present</th>
+          <th>Absent</th>
+          <th>Late</th>
+        </tr>
+      </thead>
+      <thead>
+        <tr *ngFor="let student of students">
+          <td>{{student.rollNo}}</td>
+          <td>{{student.studentName}}</td>
+          <td>
+            <input type="radio" name="{{student.rollNo}}" [checked]="student.attendanceStatus == 'p'" [value]="student.attendanceStatus" (change)="onChange($event,student)">
+          </td>
+          <td>
+            <input type="radio" name="{{student.rollNo}}" [checked]="student.attendanceStatus == 'a'" [value]="student.attendanceStatus"  (change)="onChange($event,student)">
+          </td>
+          <td>
+            <input type="radio" name="{{student.rollNo}}" [checked]="student.attendanceStatus == 'l'" [value]="student.attendanceStatus"  (change)="onChange($event,student)">
+          </td>
+        </tr>
+      </thead>
+    </table>
+    <button ion-button full (click)="submitAttendance()">Submit Attendance</button>
+    
+  </div>
 </ion-content>

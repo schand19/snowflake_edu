@@ -20,7 +20,7 @@
   <ion-searchbar placeholder="School, Place, Pincode" (ionInput)="getRegisteredSchools($event)" [(ngModel)]="selectedSchool" (ionCancel)="onCancel($event)" autocomplete="on"></ion-searchbar>
   <ion-list class="registeredSchools">
     <ion-item *ngFor="let school of schools" (click)="selectOption(school)">
-      {{ school.school_name + ', ' + school.school_address }}
+      {{ school.vSchoolName + ', ' + school.address }}
     </ion-item>
   </ion-list>
   <button ion-button full [disabled]='isDisabled' (click)="getMeToLogin()">GO</button>
