@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the AttendancePage page.
+ * Generated class for the PaymentsHistoryPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,16 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-attendance',
-  templateUrl: 'attendance.html',
+  selector: 'page-payments-history',
+  templateUrl: 'payments-history.html',
 })
-export class AttendancePage {
+export class PaymentsHistoryPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AttendancePage');
+    console.log('ionViewDidLoad PaymentsHistoryPage');
   }
 
 }
