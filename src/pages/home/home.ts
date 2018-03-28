@@ -49,6 +49,9 @@ export class HomePage {
   }
 
   logout() {
+    this.storage.forEach( item => {
+      console.log(item);
+    })
     this.navCtrl.push(FindschoolPage);
   }
 

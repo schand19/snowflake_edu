@@ -25,14 +25,14 @@ export class FindschoolPage implements OnInit {
   isDisabled: boolean = true;
   registeredSchools: any;
   constructor(public platform: Platform, public navCtrl: NavController, public navParams: NavParams,
-     public spinner: Spinner, public storage: Storage, private services: Services) {
+     public spinner: Spinner, public storage: Storage, private _services: Services) {
   }
 
   ngOnInit() {
     this.storage.clear();
     
     let spinner = this.spinner.start({ loaderText: 'Fetching Schools' });
-    this.services.getRegisteredSchools().subscribe(
+    this._services.getRegisteredSchools().subscribe(
       registeredSchools => {
         console.log(registeredSchools);
         this.registeredSchools = registeredSchools.data;

@@ -15,7 +15,7 @@ export class MyApp {
 
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = FindschoolPage;
   activePage: any;
 
   userType: string;
@@ -24,6 +24,9 @@ export class MyApp {
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
     public events: Events, public navCtrl: MenuController, public storage: Storage) {
 
+    if(storage.get('auth_token')){
+      this.rootPage = HomePage;
+    }
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -36,7 +39,6 @@ export class MyApp {
   }
 
   initializeApp() {
-
     this.platform.ready().then(() => {
       this.storage.get("userType").then(data => {
         this.userType = data;

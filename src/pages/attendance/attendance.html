@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Attendance</ion-title>
+    <ion-title>Post Attendance</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -52,13 +52,13 @@
           <td>{{student.rollNo}}</td>
           <td>{{student.studentName}}</td>
           <td>
-            <input type="radio" name="{{student.rollNo}}" [checked]="student.attendanceStatus == 'p'" [value]="student.attendanceStatus" (change)="onChange($event,student)">
+            <input type="radio" name="{{student.rollNo}}" [checked]="student.attendanceStatus == 'p'" value="p" (click)="onChange($event,student)">
           </td>
           <td>
-            <input type="radio" name="{{student.rollNo}}" [checked]="student.attendanceStatus == 'a'" [value]="student.attendanceStatus"  (change)="onChange($event,student)">
+            <input type="radio" name="{{student.rollNo}}" [checked]="student.attendanceStatus == 'a'" value="a"  (click)="onChange($event,student)">
           </td>
           <td>
-            <input type="radio" name="{{student.rollNo}}" [checked]="student.attendanceStatus == 'l'" [value]="student.attendanceStatus"  (change)="onChange($event,student)">
+            <input type="radio" name="{{student.rollNo}}" [checked]="student.attendanceStatus == 'l'" value="l"  (click)="onChange($event,student)">
           </td>
         </tr>
       </thead>

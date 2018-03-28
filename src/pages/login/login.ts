@@ -18,7 +18,7 @@ import { Spinner } from '../../utilities/spinner';
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
-  providers:[Services, Spinner]
+  providers: [Services, Spinner]
 })
 export class LoginPage {
   selectedSchoolId: string;
@@ -35,8 +35,8 @@ export class LoginPage {
   showLoginButton: boolean = false;
   userType: string;
   isRemember: boolean;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, 
-    public spinner: Spinner, private services: Services) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage,
+    public spinner: Spinner, private _services: Services) {
     this.selectedSchool = navParams.get('selectedSchool');
     this.selectedSchoolId = navParams.get('selectedSchoolId');
     //this.selectedSchoolDB = navParams.get('selectedSchoolDB');
@@ -58,24 +58,23 @@ export class LoginPage {
     this.isSendOTPDisabled = true;
     if (phoneNumber.toString().length == 10) {
       this.phoneNumber = phoneNumber;
-      
+
       this.isSendOTPDisabled = false;
     }
   }
 
   sendOTP() {
-    /* let spinner = this.spinner.start({ loaderText: '' });
-    this.services.getOTP(this.selectedSchoolId, this.phoneNumber).subscribe(
+    let spinner = this.spinner.start({ loaderText: '' });
+    this._services.getOTP(this.selectedSchoolId, this.phoneNumber).subscribe(
       otp => {
         console.log(otp);
       },
       err => {
         spinner.dismiss();
-        alert('Unable to fetch otp, try again after sometime');
       },
       () => {
         spinner.dismiss();
-      }); */
+      });
     this.showOtpField = true;
   }
 
@@ -91,7 +90,25 @@ export class LoginPage {
 
   login(otp) {
     console.log("login user otp:", otp);
-    if (otp == "111") {
+
+    let spinner = this.spinner.start({ loaderText: 'Fetching Schools' });
+
+    this._services.login(this.selectedSchoolId, this.phoneNumber, otp).subscribe(data => {
+      console.log(data);
+      spinner.dismiss();
+      this.storage.set('userName', data.vUserName);
+      this.storage.set('userId', data.iLoginId);
+      this.storage.set('school_id', data.iSchoolId);
+      this.storage.set('userType', 'Teacher');
+      this.storage.set('isLoggedin', data.auth_token);
+      this.storage.set('linkedProfiles', []);
+      this.userType = 'Teacher';
+      this.navCtrl.push(HomePage, { userType: this.userType });
+    }, error => {
+      spinner.dismiss();
+    }, () => { });
+
+    /* if (otp == "111") {
       //replace "parent" with the user type value from otp response
       this.userType = "Parent";
       console.log("login user type:", this.userType);
@@ -100,9 +117,10 @@ export class LoginPage {
       console.log("login user type:", this.userType);
     }
     this.storage.set("userType", this.userType);
-    if (/* this.userName && this.userName === 'Admin' && this.password && this.password === "P@ssword" */ this.otp && this.userType != null) {
+    if (/* this.userName && this.userName === 'Admin' && this.password && this.password === "P@ssword" this.otp && this.userType != null) {
       this.navCtrl.push(HomePage, { userType: this.userType });
-    }
+    } */
 
   }
 }
+
