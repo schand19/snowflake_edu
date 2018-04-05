@@ -5,7 +5,7 @@
     </button>
     <ion-title>Dashboard</ion-title>
     <ion-buttons end style="margin-right:10px;">
-      <button ion-button icon-only>
+      <button ion-button icon-only (click)="onClickAnnouncements()">
         <ion-icon color="light" name="notifications"></ion-icon>
       </button>
     </ion-buttons>
@@ -18,7 +18,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-list *ngIf="userType == 'Parent'">
+  <ion-list *ngIf="userRole == 'Parent'">
     <ion-item (click)="onClickDiary('parent')">
       <ion-thumbnail item-start>
         <ion-icon name="paper"></ion-icon>
@@ -107,8 +107,8 @@
 
   </ion-list>
 
-  <ion-grid *ngIf="userType == 'Teacher'" class="thumbgrid">
-    <ion-item (click)="onClickDiary(userType)">
+  <ion-grid *ngIf="userRole == 'Teacher'" class="thumbgrid">
+    <ion-item (click)="onClickDiary(userRole)">
       <ion-thumbnail item-start>
         <ion-icon name="paper"></ion-icon>
       </ion-thumbnail>
@@ -150,7 +150,7 @@
       <!-- <button ion-button clear item-end>View</button> -->
     </ion-item>
 
-    <ion-item (click)="onClickImageGallery(userType)">
+    <ion-item (click)="onClickImageGallery(userRole)">
       <ion-thumbnail item-start>
         <!-- <img src="img/thumbnail-totoro.png"> -->
         <!-- <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/image gallary.png"></ion-img> -->
@@ -196,7 +196,7 @@
 
   </ion-grid>
 
-  <ion-grid *ngIf="userType == 'Admin'" class="thumbgrid">
+  <ion-grid *ngIf="userRole == 'Admin'" class="thumbgrid">
     <ion-row class="thumbrow">
       <ion-col col col-3 class="thumb2">
         <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/school dairy.png"></ion-img>
@@ -280,7 +280,7 @@
 
   </ion-grid>
 
-  <ion-grid *ngIf="userType == 'Driver'" class="thumbgrid">
+  <ion-grid *ngIf="userRole == 'Driver'" class="thumbgrid">
 
     <ion-row class="thumbrow">
       <ion-col col col-3 class="thumb2 col-100">

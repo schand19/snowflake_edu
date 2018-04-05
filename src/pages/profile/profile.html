@@ -12,9 +12,9 @@
   <ion-slides (ionSlideDidChange)="slideChanged()" pager>
     <ion-slide *ngFor="let profile of profiles">
       <div>
-        <img [src]="profile.imageSrc">
+        <img [src]="profile.student_pic">
       </div>
-      <!-- <ion-img style="width: 80px; height: 80px;" [src]="profile.imageSrc"></ion-img>{{profile.fullName}} -->
+      <ion-img style="width: 80px; height: 80px;" [src]="profile.student_pic"></ion-img>
     </ion-slide>
   </ion-slides>
   <ion-toolbar align="center" (click)="changeProfile()">
@@ -28,7 +28,7 @@
       Name
     </ion-card-header>
     <ion-card-content>
-      {{currentProfile.fullName}}
+      {{currentProfile.student_first_name}} {{currentProfile.student_last_name}}
     </ion-card-content>
   </ion-card>
   <ion-card>
@@ -36,7 +36,7 @@
       Roll Number
     </ion-card-header>
     <ion-card-content>
-      {{currentProfile.rollNumber}}
+      {{currentProfile.student_roll_num}}
     </ion-card-content>
   </ion-card>
   <ion-card>
@@ -44,23 +44,64 @@
       Class
     </ion-card-header>
     <ion-card-content>
-      {{currentProfile.className}}
+      {{currentProfile.class_id}}
     </ion-card-content>
   </ion-card>
   <ion-card>
     <ion-card-header>
-      Section
+      DOB
     </ion-card-header>
     <ion-card-content>
-      {{currentProfile.section}}
+      {{currentProfile.DOB}}
     </ion-card-content>
   </ion-card>
   <ion-card>
     <ion-card-header>
-      Class Teacher
+      Aadhar
     </ion-card-header>
     <ion-card-content>
-      {{currentProfile.classTeacher}}
+      {{currentProfile.aadhaar_num}}
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-card>
+    <ion-card-header>
+      Admission #
+    </ion-card-header>
+    <ion-card-content>
+      {{currentProfile.admission_num}}
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      Blood Group
+    </ion-card-header>
+    <ion-card-content>
+      {{currentProfile.blood_group}}
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      Gender
+    </ion-card-header>
+    <ion-card-content>
+      {{currentProfile.gender}}
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      Nationality
+    </ion-card-header>
+    <ion-card-content>
+      {{currentProfile.nationality}}
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      Address
+    </ion-card-header>
+    <ion-card-content>
+      {{currentProfile.address}}
     </ion-card-content>
   </ion-card>
 </ion-content>

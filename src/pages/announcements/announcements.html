@@ -18,7 +18,7 @@
         <ion-label>Filter by Date:</ion-label>
         <ion-datetime type="datetime-local" displayFormat="DD/MM/YYYY" [(ngModel)]="myDate"></ion-datetime>
     </ion-item>
-      <div  *ngIf="userType == 'Parent' || userType == 'Teacher'">
+      <div  *ngIf="userRole == 'Parent' || userRole == 'Teacher'">
     <ion-card *ngFor="let announcement of schoolAnnouncementObject">
       <ion-card-content class="card">
         <ion-row>

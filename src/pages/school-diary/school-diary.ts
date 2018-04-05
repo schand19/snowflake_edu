@@ -14,12 +14,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'school-diary.html',
 })
 export class SchoolDiaryPage {
-  userType:string;
+  userRole:string;
   schooldiaryObject=[];
   parentDiaryView:boolean;
   
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.userType = navParams.get('userType');
+    this.userRole = navParams.get('userRole');
   }
 
 
@@ -27,7 +27,7 @@ export class SchoolDiaryPage {
     
     console.log('ionViewDidLoad SchoolDiaryPage');
 
-    if(this.userType == "Parent"){
+    if(this.userRole == "Parent"){
       this.parentDiaryView= true;
       this.schooldiaryObject=[{
         date: "10-11-2018",

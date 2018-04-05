@@ -1,6 +1,28 @@
 page-findschool {
+  .statusbar {
+    background: #3469ce !important;
+  }
+  ion-item {
+    border-radius: 21px;
+    border: 1px solid #ccc;
+  }
+
+  .sf_logo {
+    border: 1px solid #cacaca;
+    box-shadow: 0px 0px 8px 1px #0586d1;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    margin: 30px auto 0;
+    text-align: center;
+    line-height: 10;
+    background: url("../../assets/imgs/Snowflake.png");
+    img{
+      margin-top:-2px;
+    }
+  }
   .card {
-    background: cornflowerblue;
+    //background: cornflowerblue;
     color: #fff;
     .card-header {
       color: #fff;
@@ -21,18 +43,30 @@ page-findschool {
     .registeredSchools {
       position: absolute;
       z-index: 999;
-      width: 321px;
+      width: 100%;
     }
     .findSchool {
       font-size: 30px;
       font-style: italic;
       text-align: center;
       color: #fff;
+      margin-top: -25px;
+    }
+    .searchbar-ios {
+      /*padding: 0 8px; */
+      min-height: 44px;
+      /* border-top: 1px solid #ccc; */
+      /* border-bottom: 1px solid #ccc; */
+      background: none;
+      /* border: 1px solid #0586d1; */
+      border-radius: 21px;
+      box-shadow: 0px 1px 2px 1px #ccc;
     }
     .searchbar-md {
       padding: 0;
     }
     ion-list {
+      margin: 1px 0 16px;
       ion-label {
         color: color($colors, primary, base) !important;
         font-style: italic;
@@ -40,12 +74,15 @@ page-findschool {
       }
     }
     .searchbar-md .searchbar-input {
-      border-radius: 6px;
+      border-radius: 21px;
       font-style: italic;
-      color: #000046;
+      /* color: #000046; */
     }
     .hide {
       display: none;
+    }
+    button {
+      border-radius: 21px
     }
   }
   ion-footer {

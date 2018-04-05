@@ -14,22 +14,26 @@
 // automatically applied to the <body> element in the app.
 .sideicon {
     margin-right: 5px;
-    color: #010236;
+    color: #0507aa;
     //background: #00c79b;
 }
 
 .sideHeading {
     font-weight: bold;
-    color: #01061b; 
+    color: #0507aa; 
 }
 .scroll-content {
     padding: 3px !important;
 }
 .card-ios p{
-    color: black
+    color: #0507aa;
 }
 
 .dateWidget{
-    border: 1px solid grey;
+    border: 1px solid #0507aa;
+}
+
+.statusbar{
+    background: #3469ce !important;
 }
 

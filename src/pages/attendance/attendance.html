@@ -32,7 +32,7 @@
         <ion-option>Social</ion-option>
       </ion-select>
     </ion-item>
-    <button ion-button full  (click)="fetchStudents()">Fetch Students</button>
+    <button ion-button full (click)="fetchStudents()">Fetch Students</button>
   </div>
 
   <div *ngIf="students">
@@ -55,15 +55,15 @@
             <input type="radio" name="{{student.rollNo}}" [checked]="student.attendanceStatus == 'p'" value="p" (click)="onChange($event,student)">
           </td>
           <td>
-            <input type="radio" name="{{student.rollNo}}" [checked]="student.attendanceStatus == 'a'" value="a"  (click)="onChange($event,student)">
+            <input type="radio" name="{{student.rollNo}}" [checked]="student.attendanceStatus == 'a'" value="a" (click)="onChange($event,student)">
           </td>
           <td>
-            <input type="radio" name="{{student.rollNo}}" [checked]="student.attendanceStatus == 'l'" value="l"  (click)="onChange($event,student)">
+            <input type="radio" name="{{student.rollNo}}" [checked]="student.attendanceStatus == 'l'" value="l" (click)="onChange($event,student)">
           </td>
         </tr>
       </thead>
     </table>
     <button ion-button full (click)="submitAttendance()">Submit Attendance</button>
-    
+
   </div>
 </ion-content>

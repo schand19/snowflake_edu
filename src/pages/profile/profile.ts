@@ -21,20 +21,22 @@ import { HomePage } from '../home/home';
   providers: [Spinner]
 })
 export class ProfilePage implements OnInit {
-  currentProfile: { fullName: string; imageSrc: string; rollNumber: string, classTeacher: string, className: string, section: string };
-  profiles: { fullName: string; imageSrc: string; rollNumber: string, classTeacher: string, className: string, section: string }[];
+  currentProfile: any;
+  profiles = [];
   currentIndex: number = 0;
   @ViewChild(Slides) slides: Slides;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public spinner: Spinner, public storage: Storage) {
-
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams, public spinner: Spinner,
+    public storage: Storage) {
+      this.profiles = this.navParams.get('profiles');
+      this.currentProfile = this.profiles[this.currentIndex];
+     }
 
   ngOnInit() {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    this.profiles = [
 
+    /* this.profiles = [
       {
         fullName: "Vivaan Gatadi Vadda",
         imageSrc: './../../assets/imgs/4.jpg',
@@ -51,8 +53,9 @@ export class ProfilePage implements OnInit {
         className: 'UKG',
         section: 'A'
       }
-    ];
-    this.currentProfile = this.profiles[this.currentIndex];
+    ]; */
+    
+    //this.currentProfile = this.profiles[this.currentIndex];
   }
 
   goToSlide() {
@@ -72,8 +75,7 @@ export class ProfilePage implements OnInit {
 
   changeProfile() {
     console.log(this.storage);
-    this.storage.set('profile', this.profiles[this.currentIndex]);
+    this.storage.set('currentProfile', this.profiles[this.currentIndex]);
     this.navCtrl.push(HomePage);
   }
-
 }

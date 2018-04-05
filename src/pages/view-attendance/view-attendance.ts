@@ -14,11 +14,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'view-attendance.html',
 })
 export class ViewAttendancePage {
-  userType:string;
+  userRole:string;
   studentAttObject=[];
   parentAttendanceView:boolean;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.userType = navParams.get('userType');
+    this.userRole = navParams.get('userRole');
   }
   
 
@@ -29,9 +29,9 @@ export class ViewAttendancePage {
   }
 
   onLoadAttendanceView(){
-    if(this.userType == "Parent"){
+    if(this.userRole == "Parent"){
       this.parentAttendanceView= true;
-      console.log("inside onLoadAttendanceView ", this.userType)
+      console.log("inside onLoadAttendanceView ", this.userRole)
       this.studentAttObject=[{
         "student_pic": "",
         "student_roll_num": "1",

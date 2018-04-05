@@ -10,12 +10,18 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-avatar align="center" *ngIf="hasSchoolImage">
-    <img src="../../assets/icon/favicon.ico">
-  </ion-avatar>
+<ion-content>
 
-  <ion-card *ngIf="!hasSchoolImage">
+  <!-- <ion-avatar align="center" *ngIf="!hasSchoolImage">
+    <img src="../../assets/icon/favicon.ico">
+  </ion-avatar> -->
+
+  <div class="sf_logo"  *ngIf="!hasSchoolImage">
+    <!-- Snowflakes Logo -->
+    <img src="../../assets/imgs/Snowflake.png"/>
+  </div>
+
+  <ion-card *ngIf="hasSchoolImage">
     <ion-card-header>
       Your School
     </ion-card-header>
@@ -24,7 +30,7 @@
       {{selectedSchool}}
     </ion-card-content>
   </ion-card>
-
+  <div padding>
   <!-- <ion-item>
     <ion-label floating>Username</ion-label>
     <ion-input type="text" [(ngModel)]="userName"></ion-input>
@@ -50,4 +56,5 @@
     <a (click)="getMeToFindSchool()">Not your School?</a> |
     <a (click)="getMeToRegistration()">Not registered?</a>
   </p>
+</div>
 </ion-content>

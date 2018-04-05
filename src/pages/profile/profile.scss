@@ -1,16 +1,14 @@
 page-profile {
     ion-card-header {
-        background: #064c69;
+        background: #0586d1;
         color: #fff !important;
-        padding: 10px 16px;
     }
-
-
-    ion-card-content{
-        padding-top: 12px;
+    .card-header {
+        display: inline-flex !important;
+        width: 45%;
     }
-
-    ion-content{
-        margin-top: 10px;
+    .card-content {
+        display: inline-flex !important;
+        width: 53%;
     }
 }

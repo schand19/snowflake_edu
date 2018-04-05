@@ -14,11 +14,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'announcements.html',
 })
 export class AnnouncementsPage {
-  userType: string;
+  userRole: string;
   schoolAnnouncementObject = [];
   parentAnnouncementView: boolean;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.userType = navParams.get('userType');
+    this.userRole = navParams.get('userRole');
   }
 
   ionViewDidLoad() {
@@ -27,7 +27,7 @@ export class AnnouncementsPage {
   }
   
   onAnnouncementLoad() {
-    if (this.userType == 'Parent') {
+    if (this.userRole == 'Parent') {
       this.schoolAnnouncementObject = [{
         date: "10-11-2018",
         From: "Principal",
@@ -47,7 +47,7 @@ export class AnnouncementsPage {
         description: "School will be remain closed today (18th Feb) due to party call on Bund."
       }];
     }
-    if (this.userType == 'Teacher') {
+    if (this.userRole == 'Teacher') {
       this.schoolAnnouncementObject = [
         {
           date: "10-11-2018",

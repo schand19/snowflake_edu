@@ -33,7 +33,7 @@ export class LoginPage {
   otp: string;
   showOtpField: boolean = false;
   showLoginButton: boolean = false;
-  userType: string;
+  userRole: string;
   isRemember: boolean;
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage,
     public spinner: Spinner, private _services: Services) {
@@ -93,32 +93,35 @@ export class LoginPage {
 
     let spinner = this.spinner.start({ loaderText: 'Fetching Schools' });
 
-    this._services.login(this.selectedSchoolId, this.phoneNumber, otp).subscribe(data => {
-      console.log(data);
-      spinner.dismiss();
-      this.storage.set('userName', data.vUserName);
-      this.storage.set('userId', data.iLoginId);
-      this.storage.set('school_id', data.iSchoolId);
-      this.storage.set('userType', 'Teacher');
-      this.storage.set('isLoggedin', data.auth_token);
-      this.storage.set('linkedProfiles', []);
-      this.userType = 'Teacher';
-      this.navCtrl.push(HomePage, { userType: this.userType });
+    this._services.login(this.selectedSchoolId, this.phoneNumber, otp).subscribe(rsp => {
+      if (rsp.success) {
+        console.log(rsp);
+        const data = rsp.data;
+        spinner.dismiss();
+        this.storage.set('userName', data.vUserName);
+        this.storage.set('userId', data.iLoginId);
+        this.storage.set('school_id', data.iSchoolId);
+        this.storage.set('userRole', data.vLoginType);
+        this.storage.set('isLoggedin', data.auth_token);
+        this.storage.set('profiles', data.children);
+        this.navCtrl.push(HomePage);
+      }
     }, error => {
       spinner.dismiss();
-    }, () => { });
+    }, () => {
+    });
 
     /* if (otp == "111") {
       //replace "parent" with the user type value from otp response
-      this.userType = "Parent";
-      console.log("login user type:", this.userType);
+      this.userRole = "Parent";
+      console.log("login user type:", this.userRole);
     } else if (otp == "222") {
-      this.userType = "Teacher";
-      console.log("login user type:", this.userType);
+      this.userRole = "Teacher";
+      console.log("login user type:", this.userRole);
     }
-    this.storage.set("userType", this.userType);
-    if (/* this.userName && this.userName === 'Admin' && this.password && this.password === "P@ssword" this.otp && this.userType != null) {
-      this.navCtrl.push(HomePage, { userType: this.userType });
+    this.storage.set("userRole", this.userRole);
+    if (/* this.userName && this.userName === 'Admin' && this.password && this.password === "P@ssword" this.otp && this.userRole != null) {
+      this.navCtrl.push(HomePage, { userRole: this.userRole });
     } */
 
   }

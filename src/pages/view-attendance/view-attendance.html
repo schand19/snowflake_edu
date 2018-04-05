@@ -13,7 +13,7 @@
 </ion-header>
 
 
-<ion-content padding *ngIf="userType == 'Parent'">
+<ion-content padding *ngIf="userRole == 'Parent'">
     <ion-item class="dateWidget">
         <ion-label>Filter by Date:</ion-label>
         <ion-datetime type="datetime-local" displayFormat="DD/MM/YYYY" [(ngModel)]="myDate"></ion-datetime>

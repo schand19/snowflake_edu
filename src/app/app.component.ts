@@ -18,7 +18,7 @@ export class MyApp {
   rootPage: any = FindschoolPage;
   activePage: any;
 
-  userType: string;
+  userRole: string;
   pages: Array<{ title: string, component: any }>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,
@@ -40,13 +40,13 @@ export class MyApp {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      this.storage.get("userType").then(data => {
-        this.userType = data;
-        if (this.userType) {
-          console.log("initializeApp with userType", this.userType);
+      this.storage.get("userRole").then(data => {
+        this.userRole = data;
+        if (this.userRole) {
+          console.log("initializeApp with userRole", this.userRole);
           this.rootPage = HomePage;
         } else {
-          console.log("initializeApp without userType", this.userType);
+          console.log("initializeApp without userRole", this.userRole);
           this.rootPage = FindschoolPage;
         }
       })

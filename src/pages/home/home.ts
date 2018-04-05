@@ -18,15 +18,21 @@ import { FeesPage } from '../fees/fees';
   templateUrl: 'home.html'
 })
 export class HomePage {
-
-  userType: string;
+  userRole: string;
+  profiles : any;
 
   constructor(public platform: Platform, public navParams: NavParams, public navCtrl: NavController, public events: Events, public storage: Storage) {
-
+    this.storage.get('userRole').then( role => {
+      this.userRole = role;
+    });
     events.subscribe('logout', () => {
       this.logout();
     });
 
+    this.storage.get('profiles').then(profiles => {
+      console.log(profiles);
+      this.profiles = profiles;
+    });
   }
 
   takeAttendance() {
@@ -38,14 +44,10 @@ export class HomePage {
   }
 
   openProfilePage() {
-    this.navCtrl.push(ProfilePage);
+    this.navCtrl.push(ProfilePage, { profiles: this.profiles});
   }
 
   ngOnInit() {
-    this.storage.get("userType").then(userType => {
-      this.userType = String(userType);
-      console.log("usertype in dashboard:", this.userType);
-    })
   }
 
   logout() {
@@ -55,8 +57,8 @@ export class HomePage {
     this.navCtrl.push(FindschoolPage);
   }
 
-  onClickDiary(userType) {
-    this.navCtrl.push(SchoolDiaryPage, { userType: this.userType });
+  onClickDiary(userRole) {
+    this.navCtrl.push(SchoolDiaryPage, { userRole: this.userRole });
   }
 
   onClickImageGallery() {
@@ -72,7 +74,7 @@ export class HomePage {
   }
 
   onClickAnnouncements() {
-    this.navCtrl.push(AnnouncementsPage, { userType: this.userType });
+    this.navCtrl.push(AnnouncementsPage, { userRole: this.userRole });
   }
 
   onClickHoldiayCalender() {
@@ -80,6 +82,6 @@ export class HomePage {
   }
 
   viewAttendance() {
-    this.navCtrl.push(ViewAttendancePage, { userType: this.userType });
+    this.navCtrl.push(ViewAttendancePage, { userRole: this.userRole });
   }
 }

@@ -1,6 +1,47 @@
 page-login {
-    .links{
+    .links {
         text-align: center;
-        margin:5px;
+        margin: 5px;
+    }
+    .scroll-content {
+        .sf_logo {
+            border: 1px solid #cacaca;
+            box-shadow: 0px 0px 8px 1px #0586d1;
+            border-radius: 50%;
+            height: 100px;
+            width: 100px;
+            margin: 30px auto 0;
+            text-align: center;
+            line-height: 10;
+            background: url("../../assets/imgs/Snowflake.png");
+            img {
+                margin-top: -2px;
+            }
+        }
+        padding:0 !important;
+        ion-item {
+            border-radius: 21px !important;
+            box-shadow: 0px 1px 2px 1px #ccc !important;
+            .item-inner {
+                .input-wrapper {
+                    ion-label[fixed] {
+                        -webkit-box-flex: 0;
+                        -webkit-flex: 0 0 55px;
+                        -ms-flex: 0 0 55px;
+                        flex: 0 0 55px;
+                        width: 55px;
+                        min-width: 55px;
+                        max-width: 55px;
+                    }
+                }
+            }
+        }
+        ion-card {
+            border-radius: 4px;
+            box-shadow: 0px 0px 3px 1px #ccc;
+        }
+        button {
+            border-radius: 21px;
+        }
     }
 }
