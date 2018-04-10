@@ -53,12 +53,8 @@ page-findschool {
       margin-top: -25px;
     }
     .searchbar-ios {
-      /*padding: 0 8px; */
       min-height: 44px;
-      /* border-top: 1px solid #ccc; */
-      /* border-bottom: 1px solid #ccc; */
       background: none;
-      /* border: 1px solid #0586d1; */
       border-radius: 21px;
       box-shadow: 0px 1px 2px 1px #ccc;
     }
@@ -82,7 +78,7 @@ page-findschool {
       display: none;
     }
     button {
-      border-radius: 21px
+      border-radius: 21px;
     }
   }
   ion-footer {

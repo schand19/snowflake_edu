@@ -7,7 +7,10 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Post Attendance</ion-title>
+    <ion-title>
+      <span *ngIf="!students">Fetch Students</span>
+      <span *ngIf="students">Post Attendance</span>
+    </ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -16,34 +19,34 @@
   <div *ngIf="!students">
     <ion-item>
       <ion-label>Class</ion-label>
-      <ion-select [(ngModel)]="attendanceClass">
+      <ion-select [(ngModel)]="attendanceClass" (ionChange)="checkRequired()">
         <ion-option>7 A</ion-option>
         <ion-option>7 B</ion-option>
       </ion-select>
     </ion-item>
     <ion-item>
-      <ion-label>Period</ion-label>
-      <ion-select [(ngModel)]="period">
-        <ion-option>Telugu</ion-option>
-        <ion-option>Hindi</ion-option>
-        <ion-option>English</ion-option>
-        <ion-option>Mathematics</ion-option>
-        <ion-option>Science</ion-option>
-        <ion-option>Social</ion-option>
+      <ion-label>Session</ion-label>
+      <ion-select [(ngModel)]="period" (ionChange)="checkRequired()">
+        <ion-option>
+          Morning
+        </ion-option>
+        <ion-option>
+            Afternoon
+          </ion-option>
       </ion-select>
     </ion-item>
-    <button ion-button full (click)="fetchStudents()">Fetch Students</button>
+    <button ion-button full [disabled]="isDisabled" (click)="fetchStudents()">Fetch Students</button>
   </div>
 
   <div *ngIf="students">
-    <h3>{{attendanceClass}} : {{period}} </h3>
+    <p>{{attendanceClass}} : {{period}} </p>
     <table>
       <thead>
         <tr>
           <th>R.No</th>
           <th>Name</th>
-          <th>Present</th>
-          <th>Absent</th>
+          <th>P</th>
+          <th>A</th>
           <th>Late</th>
         </tr>
       </thead>
@@ -64,6 +67,5 @@
       </thead>
     </table>
     <button ion-button full (click)="submitAttendance()">Submit Attendance</button>
-
   </div>
 </ion-content>

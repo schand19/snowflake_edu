@@ -19,7 +19,7 @@
 
 <ion-content>
   <ion-list *ngIf="userRole == 'Parent'">
-    <ion-item (click)="onClickDiary('parent')">
+    <ion-item (click)="onClickDiary(userRole)">
       <ion-thumbnail item-start>
         <ion-icon name="paper"></ion-icon>
       </ion-thumbnail>
@@ -108,7 +108,7 @@
   </ion-list>
 
   <ion-grid *ngIf="userRole == 'Teacher'" class="thumbgrid">
-    <ion-item (click)="onClickDiary(userRole)">
+    <ion-item (click)="onClickDiary('Parent')">
       <ion-thumbnail item-start>
         <ion-icon name="paper"></ion-icon>
       </ion-thumbnail>
@@ -119,25 +119,19 @@
 
     <ion-item (click)="takeAttendance()">
       <ion-thumbnail item-start>
-        <!-- <img src="img/thumbnail-totoro.png"> -->
-        <!-- <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/exam results.png"></ion-img> -->
         <ion-icon name="clipboard"></ion-icon>
       </ion-thumbnail>
-      <h2>Attendance</h2>
-      <p>Attendance</p>
-      <!-- <button ion-button clear item-end>View</button> -->
+      <h2>Post Attendance</h2>
+      <p>Post Attendance</p>
     </ion-item>
 
-    <ion-item (click)="viewAttendance()">
+    <!-- <ion-item (click)="viewAttendance()">
       <ion-thumbnail item-start>
-        <!-- <img src="img/thumbnail-totoro.png"> -->
-        <!-- <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/exam results.png"></ion-img> -->
         <ion-icon name="clipboard"></ion-icon>
       </ion-thumbnail>
       <h2>View Attendance</h2>
       <p>View Attendance</p>
-      <!-- <button ion-button clear item-end>View</button> -->
-    </ion-item>
+    </ion-item> -->
 
     <ion-item (click)="onClickAnnouncements('parent')">
       <ion-thumbnail item-start>
@@ -147,6 +141,17 @@
       </ion-thumbnail>
       <h2>Announcements</h2>
       <p>Announcements</p>
+      <!-- <button ion-button clear item-end>View</button> -->
+    </ion-item>
+
+    <ion-item (click)="onClickStudentProfile()">
+      <ion-thumbnail item-start>
+        <!-- <img src="img/thumbnail-totoro.png"> -->
+        <!-- <ion-img width="70" height="70" style="background :transparent;" src="../assets/imgs/image gallary.png"></ion-img> -->
+        <ion-icon name="images"></ion-icon>
+      </ion-thumbnail>
+      <h2>Student Profile</h2>
+      <p>Student Profile</p>
       <!-- <button ion-button clear item-end>View</button> -->
     </ion-item>
 

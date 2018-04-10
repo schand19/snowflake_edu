@@ -12,6 +12,7 @@ import { Storage } from '@ionic/Storage';
 import { HolidayCalenderPage } from '../holiday-calender/holiday-calender';
 import { ViewAttendancePage } from '../view-attendance/view-attendance';
 import { FeesPage } from '../fees/fees';
+import { StudentsListPage } from '../students-list/students-list';
 
 @Component({
   selector: 'page-home',
@@ -33,6 +34,10 @@ export class HomePage {
       console.log(profiles);
       this.profiles = profiles;
     });
+  }
+
+  onClickStudentProfile(){
+    this.navCtrl.push(StudentsListPage);
   }
 
   takeAttendance() {
@@ -58,6 +63,7 @@ export class HomePage {
   }
 
   onClickDiary(userRole) {
+    console.log(userRole);
     this.navCtrl.push(SchoolDiaryPage, { userRole: this.userRole });
   }
 

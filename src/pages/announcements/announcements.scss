@@ -1,11 +1,15 @@
 page-announcements {
-    ion-col{
-        padding: 0px !important;
-    }
-    scroll-content {
-        padding: 0px; 
-    }
-    .card{
-        padding:5px;
+    .scroll-content {
+        padding: 2px;
+        ion-col {
+            padding: 0px !important;
+        }
+        scroll-content {
+            padding: 0px;
+        }
+        .card {
+            padding: 5px;
+            margin: 1px 0;
+        }
     }
 }

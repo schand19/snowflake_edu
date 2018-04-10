@@ -14,27 +14,30 @@
 
 
 <ion-content padding>
-    <ion-item class="dateWidget">
+  <!-- <ion-item class="dateWidget">
         <ion-label>Filter by Date:</ion-label>
         <ion-datetime type="datetime-local" displayFormat="DD/MM/YYYY" [(ngModel)]="myDate"></ion-datetime>
-    </ion-item>
-      <div  *ngIf="userRole == 'Parent' || userRole == 'Teacher'">
+    </ion-item> -->
+  <div *ngIf="userRole == 'Parent' || userRole == 'Teacher'">
     <ion-card *ngFor="let announcement of schoolAnnouncementObject">
       <ion-card-content class="card">
         <ion-row>
           <ion-col>
-            <p><a class="sideHeading">Date:</a> {{announcement.date}}</p>
-          </ion-col>
-        </ion-row>
-          <ion-row>
-          <ion-col>
-            <p><a class="sideHeading">From:</a> {{announcement.From}}</p>
+            <p>
+              <a class="sideHeading">Date:</a> {{announcement.date}}</p>
           </ion-col>
         </ion-row>
         <ion-row>
-          <p><a class="sideHeading">Description:</a> {{announcement.description}}</p>
+          <ion-col>
+            <p>
+              <a class="sideHeading">From:</a> {{announcement.From}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <p>
+            <a class="sideHeading">Description:</a> {{announcement.description}}</p>
         </ion-row>
       </ion-card-content>
     </ion-card>
-</div>
+  </div>
 </ion-content>

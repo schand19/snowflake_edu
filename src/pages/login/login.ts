@@ -64,7 +64,7 @@ export class LoginPage {
   }
 
   sendOTP() {
-    let spinner = this.spinner.start({ loaderText: '' });
+    let spinner = this.spinner.start({ loaderText: 'Wait..' });
     this._services.getOTP(this.selectedSchoolId, this.phoneNumber).subscribe(
       otp => {
         console.log(otp);

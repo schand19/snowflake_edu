@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the AttendancePage page.
@@ -14,14 +15,21 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'attendance.html',
 })
 export class AttendancePage {
-  students: {rollNo: string, studentName: string; attendanceStatus: string}[];
-  attendanceCass;
+  students: any[];
+  attendanceClass;
   period;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  isDisabled: boolean = true;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public tc: ToastController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AttendancePage');
+  }
+
+  checkRequired(){
+    if(this.attendanceClass && this.period){
+      this.isDisabled = false;
+    }
   }
 
   fetchStudents(){
@@ -37,6 +45,17 @@ export class AttendancePage {
   }
   submitAttendance(){
     console.log(this.students);
+    let toast = this.tc.create({
+      message: 'Attendance successfully submitted',
+      duration: 3000,
+      position: 'top'
+    });
+  
+    toast.onDidDismiss(() => {
+      this.navCtrl.push(HomePage);
+    });
+  
+    toast.present();
   }
 
 }

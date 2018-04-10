@@ -25,9 +25,9 @@ export class SchoolDiaryPage {
 
   ionViewDidLoad() {
     
-    console.log('ionViewDidLoad SchoolDiaryPage');
+    console.log('ionViewDidLoad SchoolDiaryPage' , this.userRole);
 
-    if(this.userRole == "Parent"){
+    if(this.userRole == "Parent" || this.userRole == "Teacher"){
       this.parentDiaryView= true;
       this.schooldiaryObject=[{
         date: "10-11-2018",

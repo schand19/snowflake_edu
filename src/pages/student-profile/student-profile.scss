@@ -1,22 +1,22 @@
-page-profile {
+page-student-profile {
     ion-card-header {
         background: #0586d1;
         color: #fff !important;
     }
-    .card {
-        margin: 1px;
-        border-radius: 1px;
+    .card{
+        margin:1px;
+        border-radius:1px;
     }
     .card-header {
         display: inline-flex !important;
         width: 35%;
-        padding: 14px 6px;
+        padding:14px 6px;
         font-size: 12px;
     }
     .card-content {
         display: inline-flex !important;
         min-width: 53%;
-        padding: 14px 8px;
+        padding:14px 8px;
         font-size: 12px;
     }
 }

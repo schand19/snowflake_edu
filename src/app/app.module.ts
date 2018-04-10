@@ -28,8 +28,10 @@ import { ViewAttendancePage } from '../pages/view-attendance/view-attendance';
 import { HolidayCalenderPage } from '../pages/holiday-calender/holiday-calender';
 import { OnlineTeacherPage } from '../pages/online-teacher/online-teacher';
 import { MarksheetPage } from '../pages/marksheet/marksheet';
+import { StudentsListPage } from '../pages/students-list/students-list';
+import { StudentProfilePage } from '../pages/student-profile/student-profile';
 
-import {IonicStorageModule} from '@ionic/Storage';
+import { IonicStorageModule } from '@ionic/Storage';
 import { FeeDetailsPage } from '../pages/fee-details/fee-details';
 
 @NgModule({
@@ -54,6 +56,8 @@ import { FeeDetailsPage } from '../pages/fee-details/fee-details';
     RegistrationPage,
     ResultsPage,
     SchoolDiaryPage,
+    StudentsListPage,
+    StudentProfilePage
   ],
   imports: [
     BrowserModule,
@@ -87,6 +91,8 @@ import { FeeDetailsPage } from '../pages/fee-details/fee-details';
     RegistrationPage,
     ResultsPage,
     SchoolDiaryPage,
+    StudentsListPage,
+    StudentProfilePage
   ],
   providers: [
     StatusBar,
